@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIFCO Foundation — Safer Initiative For Communities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* BRIGHT HEADER/FOOTER PALETTE */
+  --nav-bg:#f5f0e8;
+  --nav-border:#d4a84b;
+  --footer-bg:#f5f0e8;
+  --footer-border:#d4a84b;
+
+  --navy:#0b1f3a;
+  --navy2:#142d52;
+  --navy3:#1d3f6e;
+  --gold:#b8922a;
+  --gold2:#d4a84b;
+  --gold3:#f0c96e;
+  --cream:#f8f5ef;
+  --cream2:#ede8df;
+  --white:#ffffff;
+  --text:#1a2332;
+  --text2:#3a4a5c;
+  --muted:#6b7a8d;
+  --light-border:rgba(184,146,42,0.25);
+  --divider:rgba(11,31,58,0.1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
+
+h1,h2,h3,.serif{font-family:'EB Garamond',Georgia,serif}
+.mono{font-family:'Bebas Neue',monospace}
+
+/* ======= PAGE ROUTING ======= */
+.page{display:none}
+.page.active{display:block}
+
+/* ======= NAV — BRIGHT CREAM WITH DARK TEXT ======= */
+nav{
+  position:fixed;top:0;width:100%;z-index:1000;
+  background:var(--nav-bg);
+  backdrop-filter:blur(20px);
+  border-bottom:2px solid var(--nav-border);
+  box-shadow:0 2px 20px rgba(184,146,42,0.15);
+  transition:all 0.4s
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;height:80px
+}
+.nav-logo{display:flex;align-items:center;gap:14px;cursor:pointer;text-decoration:none}
+.logo-img{
+  width:58px;height:58px;border-radius:6px;
+  background:var(--white);
+  border:2px solid var(--gold2);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;flex-shrink:0;
+  box-shadow:0 2px 8px rgba(184,146,42,0.2)
+}
+.logo-img img{width:100%;height:100%;object-fit:contain;display:block}
+.nav-brand-title{
+  font-family:'EB Garamond',serif;font-size:1.3rem;font-weight:700;
+  color:var(--navy);line-height:1;letter-spacing:0.01em
+}
+.nav-brand-sub{
+  font-size:0.62rem;color:var(--gold);letter-spacing:0.14em;
+  text-transform:uppercase;font-weight:600;margin-top:2px
+}
+.nav-links{display:flex;gap:0.15rem;list-style:none;align-items:center}
+.nav-links a{
+  text-decoration:none;color:var(--text2);font-size:0.82rem;
+  font-weight:500;padding:0.5rem 0.85rem;border-radius:3px;
+  transition:all 0.2s;letter-spacing:0.03em;white-space:nowrap
+}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);background:rgba(184,146,42,0.12)}
+.nav-donate{
+  background:var(--navy)!important;color:var(--white)!important;
+  padding:0.55rem 1.4rem!important;border-radius:3px!important;
+  font-weight:600!important;letter-spacing:0.04em!important;
+  transition:background 0.2s!important
+}
+.nav-donate:hover{background:var(--navy2)!important}
+
+/* ======= HERO ======= */
+.hero{
+  min-height:100vh;position:relative;
+  background:var(--navy);
+  display:flex;align-items:center;overflow:hidden;padding-top:80px
+}
+.hero-bg-img{
+  position:absolute;inset:0;
+  background:linear-gradient(105deg,#0b1f3a 0%,#0b1f3a 40%,rgba(11,31,58,0.75) 100%);
+  z-index:0
+}
+.hero-grain{
+  position:absolute;inset:0;z-index:1;opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:200px
+}
+.hero-gold-line{
+  position:absolute;top:0;left:0;width:4px;height:100%;
+  background:linear-gradient(to bottom,transparent,var(--gold),transparent);
+  z-index:2
+}
+.hero-content{
+  max-width:1280px;margin:0 auto;padding:5rem 2.5rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;
+  align-items:center;position:relative;z-index:3;width:100%
+}
+.hero-kicker{display:flex;align-items:center;gap:0.8rem;margin-bottom:2rem}
+.hero-kicker-line{width:40px;height:1px;background:var(--gold)}
+.hero-kicker-text{font-size:0.72rem;color:var(--gold2);letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
+.hero-h1{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(2.6rem,4.5vw,4.2rem);
+  color:var(--white);font-weight:700;
+  line-height:1.1;margin-bottom:1.8rem;letter-spacing:-0.01em
+}
+.hero-h1 em{font-style:italic;color:var(--gold3)}
+.hero-lead{
+  color:rgba(255,255,255,0.72);font-size:1rem;
+  line-height:1.85;margin-bottom:2.5rem;font-weight:300;max-width:520px
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-gold{
+  background:var(--gold);color:var(--navy);
+  padding:0.85rem 2rem;border:none;border-radius:3px;
+  font-size:0.85rem;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;text-decoration:none;
+  display:inline-block;transition:all 0.25s
+}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-ghost{
+  border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.9);
+  padding:0.85rem 2rem;border-radius:3px;
+  font-size:0.85rem;font-weight:500;letter-spacing:0.04em;
+  cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.25s;background:transparent
+}
+.btn-ghost:hover{border-color:var(--white);color:var(--white)}
+
+/* Hero right panel */
+.hero-img-panel{position:relative}
+.hero-img-frame{
+  position:relative;border-radius:4px;overflow:hidden;
+  background:linear-gradient(135deg,var(--navy2),var(--navy3));
+  aspect-ratio:4/5;border:1px solid rgba(184,146,42,0.3)
+}
+.hero-img-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-img-badge{
+  position:absolute;bottom:1.5rem;left:-2rem;
+  background:var(--gold);color:var(--navy);
+  padding:1rem 1.5rem;border-radius:3px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4)
+}
+.hero-img-badge .badge-num{font-family:'EB Garamond',serif;font-size:2.2rem;font-weight:700;line-height:1;display:block}
+.hero-img-badge .badge-text{font-size:0.72rem;font-weight:600;letter-spacing:0.04em}
+
+/* ======= SECTIONS ======= */
+.section{padding:7rem 2.5rem}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-kicker{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.section-kicker-line{width:32px;height:1px;background:var(--gold)}
+.section-kicker-text{font-size:0.7rem;color:var(--gold);letter-spacing:0.16em;text-transform:uppercase;font-weight:600}
+.section-h2{
+  font-family:'EB Garamond',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:700;color:var(--navy);line-height:1.15;
+  margin-bottom:1.2rem;letter-spacing:-0.01em
+}
+.section-h2 em{font-style:italic;color:var(--gold)}
+.section-lead{color:var(--text2);font-size:0.97rem;line-height:1.85;max-width:600px;font-weight:300}
+
+/* ======= HOME — ONE-PAGE SCROLL SECTIONS ======= */
+#page-home{display:block!important} /* always block; scroll-based */
+#page-home > section, #page-home > div.donor-strip{display:block!important}
+
+/* ======= MISSION ======= */
+.mission{background:var(--white)}
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem}
+.mission-img{position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--cream2);border:1px solid var(--divider)}
+.mission-img img{width:100%;height:100%;object-fit:cover;opacity:0.9}
+.mission-img-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:0.5rem;background:linear-gradient(135deg,var(--cream),var(--cream2))}
+.mission-accent-box{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  background:var(--navy);color:var(--white);
+  padding:1.5rem 2rem;border-radius:4px
+}
+.mission-accent-box .accent-num{font-family:'EB Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--gold2);line-height:1;display:block}
+.mission-accent-box .accent-text{font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:0.2rem}
+.mission-quote{border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0;font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);font-style:italic;line-height:1.7}
+.mission-body{color:var(--text2);font-size:0.95rem;line-height:1.85;font-weight:300;margin-bottom:1rem}
+
+/* ======= STATS BAR ======= */
+.stats-bar{background:var(--navy);padding:4rem 2.5rem}
+.stats-bar-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:2rem;border-right:1px solid rgba(255,255,255,0.08)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'EB Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold2);line-height:1;display:block;margin-bottom:0.4rem}
+.stat-label{font-size:0.78rem;color:rgba(255,255,255,0.55);letter-spacing:0.08em;text-transform:uppercase}
+.stat-detail{font-size:0.82rem;color:rgba(255,255,255,0.35);margin-top:0.3rem;font-style:italic}
+
+/* ======= OBJECTIVES ======= */
+.objectives{background:var(--cream);position:relative;overflow:hidden}
+.obj-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem}
+.obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;position:relative;z-index:1}
+.obj-card{background:var(--white);padding:2.5rem;transition:all 0.3s;cursor:default;border:1px solid rgba(11,31,58,0.07)}
+.obj-card:hover{background:var(--navy)}
+.obj-card:hover .obj-title{color:var(--white)}
+.obj-card:hover .obj-body{color:rgba(255,255,255,0.6)}
+.obj-card:hover .obj-num{color:var(--gold2)}
+.obj-num{font-family:'Bebas Neue',monospace;font-size:0.85rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:1.5rem;display:block}
+.obj-icon-sq{width:44px;height:44px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.2rem;border-radius:3px;transition:background 0.3s}
+.obj-card:hover .obj-icon-sq{background:rgba(255,255,255,0.08)}
+.obj-title{font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.8rem;line-height:1.3;transition:color 0.3s}
+.obj-body{color:var(--text2);font-size:0.83rem;line-height:1.75;font-weight:300;transition:color 0.3s}
+
+/* ======= FOCUS PILLARS ======= */
+.focus{background:var(--white);position:relative;overflow:hidden}
+.focus-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;margin-top:4rem}
+.focus-card{padding:2.5rem;border:1px solid var(--divider);border-radius:4px;transition:all 0.3s}
+.focus-card:hover{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.focus-card-num{font-family:'Bebas Neue',monospace;font-size:2.5rem;color:var(--cream2);line-height:1;margin-bottom:1.5rem;letter-spacing:0.05em}
+.focus-card-tag{font-size:0.68rem;color:var(--gold);letter-spacing:0.14em;text-transform:uppercase;font-weight:600;margin-bottom:0.8rem}
+.focus-card-title{font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--navy);font-weight:700;margin-bottom:0.8rem}
+.focus-card-body{color:var(--muted);font-size:0.85rem;line-height:1.8;font-weight:300}
+
+/* ======= ABOUT PAGE ======= */
+.about-hero{min-height:60vh;background:var(--navy);display:flex;align-items:flex-end;padding:80px 2.5rem 0;position:relative;overflow:hidden}
+.about-hero-bg{position:absolute;inset:0;background:linear-gradient(to top,var(--navy) 25%,rgba(11,31,58,0.6) 100%)}
+.about-hero-content{max-width:1280px;margin:0 auto;padding:5rem 0 4rem;position:relative;z-index:1;width:100%}
+.about-hero-h1{font-family:'EB Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--white);font-weight:700;max-width:700px;line-height:1.1;margin-bottom:1.5rem}
+.about-hero-lead{color:rgba(255,255,255,0.65);font-size:1rem;max-width:560px;line-height:1.85;font-weight:300}
+.about-section{padding:6rem 2.5rem}
+.about-section-inner{max-width:1280px;margin:0 auto}
+.about-two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-body{color:var(--text2);font-size:0.95rem;line-height:1.9;font-weight:300;margin-bottom:1.2rem}
+.about-story-img{aspect-ratio:3/4;border-radius:4px;overflow:hidden;background:var(--cream2);position:relative;top:2rem;border:1px solid var(--divider)}
+.about-story-img img{width:100%;height:100%;object-fit:cover;opacity:0.92}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.team-card{text-align:center}
+.team-photo{width:120px;height:120px;border-radius:50%;background:var(--cream2);margin:0 auto 1rem;overflow:hidden;border:3px solid var(--gold)}
+.team-photo img{width:100%;height:100%;object-fit:cover}
+.team-name{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--navy);font-weight:700}
+.team-role{font-size:0.78rem;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.2rem}
+.team-bio{font-size:0.82rem;color:var(--muted);margin-top:0.8rem;line-height:1.7}
+
+/* ======= DONATE PAGE ======= */
+.donate-hero{padding:160px 2.5rem 80px;background:var(--cream);border-bottom:1px solid var(--divider);position:relative;overflow:hidden}
+.donate-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;max-width:1280px;margin:0 auto;padding:5rem 2.5rem}
+.donate-impact-item{display:flex;align-items:start;gap:1.2rem;padding:1.2rem;border:1px solid var(--divider);border-radius:4px;transition:border-color 0.2s;margin-bottom:1rem}
+.donate-impact-item:hover{border-color:var(--gold)}
+.donate-impact-icon{width:40px;height:40px;background:var(--navy);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.donate-impact-text h4{font-size:0.9rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem}
+.donate-impact-text p{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.donate-form-panel{background:var(--white);border:1px solid var(--divider);border-radius:6px;padding:2.5rem;position:sticky;top:100px}
+.donate-form-title{font-family:'EB Garamond',serif;font-size:1.5rem;color:var(--navy);font-weight:700;margin-bottom:0.5rem}
+.donate-form-sub{font-size:0.83rem;color:var(--muted);margin-bottom:2rem}
+.amount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-bottom:1rem}
+.amount-btn{border:1px solid var(--divider);background:none;padding:0.75rem;border-radius:3px;font-size:0.9rem;font-weight:600;color:var(--text2);cursor:pointer;transition:all 0.2s;font-family:'EB Garamond',serif}
+.amount-btn:hover,.amount-btn.selected{border-color:var(--gold);background:rgba(184,146,42,0.08);color:var(--gold)}
+.form-group{margin-bottom:1.2rem}
+.form-label{font-size:0.75rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:0.5rem}
+.form-input{width:100%;padding:0.8rem 1rem;border:1px solid var(--divider);border-radius:3px;font-size:0.9rem;color:var(--text);background:var(--white);transition:border-color 0.2s;font-family:'Inter',sans-serif}
+.form-input:focus{outline:none;border-color:var(--gold)}
+.form-input::placeholder{color:var(--muted)}
+.form-select{width:100%;padding:0.8rem 1rem;border:1px solid var(--divider);border-radius:3px;font-size:0.9rem;color:var(--text);background:var(--white);cursor:pointer;font-family:'Inter',sans-serif}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-full{width:100%;padding:1rem;border:none;border-radius:3px;cursor:pointer;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;transition:all 0.2s}
+.btn-donate{background:var(--navy);color:var(--white)}
+.btn-donate:hover{background:var(--navy2)}
+.secure-note{text-align:center;margin-top:1rem;font-size:0.75rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:0.4rem}
+.other-ways{padding:4rem 2.5rem;background:var(--cream);border-top:1px solid var(--divider)}
+.other-ways-inner{max-width:1280px;margin:0 auto}
+.bank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.bank-card{background:var(--white);border:1px solid var(--divider);padding:2rem;border-radius:4px}
+.bank-card h4{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1rem}
+.bank-detail{font-size:0.83rem;color:var(--muted);margin-bottom:0.4rem;line-height:1.5}
+.bank-detail strong{color:var(--text);font-weight:600}
+
+/* ======= SPEAKER PAGE ======= */
+.speaker-hero{padding:160px 2.5rem 80px;background:var(--navy);position:relative;overflow:hidden}
+.speaker-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,31,58,0.9) 0%,rgba(20,45,82,0.8) 100%)}
+.speaker-hero-h1{font-family:'EB Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--white);font-weight:700;max-width:680px;line-height:1.15;margin-bottom:1rem}
+.speaker-hero-lead{color:rgba(255,255,255,0.65);font-size:1rem;max-width:520px;line-height:1.85}
+.speaker-content{max-width:1280px;margin:0 auto;padding:5rem 2.5rem}
+.speaker-two-col{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+.speaker-benefit{display:flex;gap:1rem;align-items:start;padding:1.2rem;border-left:3px solid var(--gold);margin-bottom:1rem}
+.speaker-benefit-icon{font-size:1.2rem;flex-shrink:0;margin-top:0.1rem}
+.speaker-benefit h4{font-size:0.92rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem}
+.speaker-benefit p{font-size:0.82rem;color:var(--muted);line-height:1.65}
+.speaker-img{aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--cream2);margin-bottom:2rem;border:1px solid var(--divider)}
+.speaker-img img{width:100%;height:100%;object-fit:cover;opacity:0.9}
+.speaker-form{background:var(--white);border:1px solid var(--divider);border-radius:6px;padding:2.5rem}
+.speaker-form-title{font-family:'EB Garamond',serif;font-size:1.4rem;color:var(--navy);font-weight:700;margin-bottom:0.5rem}
+.speaker-form-sub{font-size:0.83rem;color:var(--muted);margin-bottom:2rem}
+.topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:1.2rem}
+.topic-check{display:flex;align-items:center;gap:0.5rem;cursor:pointer}
+.topic-check input{accent-color:var(--gold);width:14px;height:14px}
+.topic-check label{font-size:0.83rem;color:var(--text2);cursor:pointer}
+
+/* ======= TRAINING PAGE ======= */
+.training-hero{padding:160px 2.5rem 80px;background:var(--navy);position:relative;overflow:hidden}
+.training-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,31,58,0.97) 0%,rgba(20,45,82,0.85) 100%)}
+.training-badge{display:inline-flex;align-items:center;gap:0.6rem;background:rgba(184,146,42,0.15);border:1px solid rgba(184,146,42,0.3);border-radius:3px;padding:0.5rem 1rem;font-size:0.75rem;color:var(--gold2);letter-spacing:0.08em;text-transform:uppercase;font-weight:600;margin-bottom:2rem}
+.training-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#4ade80;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.training-content{max-width:1280px;margin:0 auto;padding:5rem 2.5rem}
+.upcoming-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.event-card{border:1px solid var(--divider);border-radius:4px;overflow:hidden;transition:all 0.3s}
+.event-card:hover{box-shadow:0 8px 32px rgba(11,31,58,0.1);transform:translateY(-2px)}
+.event-card-top{background:var(--navy);padding:1.5rem;position:relative}
+.event-date{font-family:'Bebas Neue',monospace;font-size:2.5rem;color:var(--gold2);line-height:1;display:block}
+.event-month{font-size:0.72rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase}
+.event-tag{position:absolute;top:1rem;right:1rem;background:rgba(184,146,42,0.2);border:1px solid rgba(184,146,42,0.3);padding:0.25rem 0.7rem;border-radius:2px;font-size:0.68rem;color:var(--gold2);letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+.event-card-body{padding:1.5rem}
+.event-title{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--navy);font-weight:700;margin-bottom:0.5rem}
+.event-detail{font-size:0.8rem;color:var(--muted);margin-bottom:0.3rem;display:flex;align-items:center;gap:0.4rem}
+.event-card-btn{display:block;text-align:center;margin:1.5rem;border:1px solid var(--gold);color:var(--gold);padding:0.65rem;border-radius:3px;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.event-card-btn:hover{background:var(--gold);color:var(--navy)}
+.training-room{margin-top:4rem;background:var(--navy);border-radius:6px;overflow:hidden}
+.training-room-header{padding:2rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.training-room-title{font-family:'EB Garamond',serif;font-size:1.5rem;color:var(--white);font-weight:700}
+.training-room-sub{font-size:0.83rem;color:rgba(255,255,255,0.5);margin-top:0.3rem}
+.meeting-embed-placeholder{background:rgba(0,0,0,0.3);min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:3rem;text-align:center}
+.meeting-embed-placeholder .meeting-icon{font-size:3rem;margin-bottom:1rem}
+.meeting-embed-placeholder h3{font-family:'EB Garamond',serif;font-size:1.4rem;color:var(--white)}
+.meeting-embed-placeholder p{font-size:0.85rem;color:rgba(255,255,255,0.4);max-width:400px;line-height:1.7}
+.embed-code-note{background:rgba(184,146,42,0.1);border:1px solid rgba(184,146,42,0.2);border-radius:3px;padding:1rem 1.5rem;margin-top:1rem;font-family:'Courier New',monospace;font-size:0.78rem;color:var(--gold2);max-width:400px}
+
+/* ======= CONTACT PAGE ======= */
+.contact-hero{padding:160px 2.5rem 80px;background:var(--cream);border-bottom:1px solid var(--divider)}
+.contact-content{max-width:1280px;margin:0 auto;padding:5rem 2.5rem}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem}
+.contact-card{background:var(--white);border:1px solid var(--divider);padding:1.5rem;border-radius:4px;transition:border-color 0.2s;margin-bottom:0.8rem}
+.contact-card:hover{border-color:var(--gold)}
+.contact-card-dept{font-size:0.68rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:0.4rem}
+.contact-card-email{font-family:'EB Garamond',serif;font-size:1rem;color:var(--navy);font-weight:600}
+.contact-card-desc{font-size:0.8rem;color:var(--muted);margin-top:0.3rem;line-height:1.6}
+.contact-form-panel{background:var(--white);border:1px solid var(--divider);border-radius:6px;padding:2.5rem}
+.contact-form-title{font-family:'EB Garamond',serif;font-size:1.5rem;color:var(--navy);font-weight:700;margin-bottom:0.5rem}
+.contact-form-sub{font-size:0.83rem;color:var(--muted);margin-bottom:2rem}
+textarea.form-input{resize:vertical;min-height:120px;font-family:'Inter',sans-serif}
+
+/* ======= FOOTER — BRIGHT CREAM WITH DARK TEXT ======= */
+footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);padding:5rem 2.5rem 2rem}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-gold-rule{width:100%;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin-bottom:3rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:1.2rem}
+.footer-logo-img{width:52px;height:52px;border-radius:5px;background:var(--white);border:2px solid var(--gold2);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(184,146,42,0.15)}
+.footer-logo-img img{width:100%;height:100%;object-fit:contain}
+.footer-brand-name{font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);font-weight:700}
+.footer-brand-sub{font-size:0.62rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-top:1px}
+.footer-desc{font-size:0.83rem;color:var(--text2);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+.footer-col-title{font-size:0.68rem;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;font-weight:600;margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid var(--divider)}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
+.footer-col a{text-decoration:none;color:var(--text2);font-size:0.83rem;transition:color 0.2s;font-weight:400}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--divider);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom-left{font-size:0.78rem;color:var(--muted)}
+.footer-bottom-right{display:flex;gap:1rem}
+.footer-bottom-right a{font-size:0.78rem;color:var(--muted);text-decoration:none}
+.footer-bottom-right a:hover{color:var(--gold)}
+.footer-social a{width:32px;height:32px;border:1px solid var(--divider);border-radius:3px;display:inline-flex;align-items:center;justify-content:center;color:var(--text2);text-decoration:none;font-size:0.85rem;transition:all 0.2s;margin-right:0.4rem}
+.footer-social a:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ======= FLOATING BUTTONS ======= */
+.float-container{position:fixed;bottom:2rem;right:2rem;z-index:900;display:flex;flex-direction:column;gap:0.8rem;align-items:flex-end}
+.float-wa{width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);cursor:pointer;transition:all 0.2s;text-decoration:none;border:none;position:relative}
+.float-wa:hover{transform:scale(1.08)}
+.float-wa svg{width:28px;height:28px;fill:white}
+.float-ai{width:56px;height:56px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 20px rgba(11,31,58,0.4);font-size:1.4rem;position:relative}
+.float-ai:hover{transform:scale(1.08);background:var(--navy2)}
+.float-label{position:absolute;right:66px;background:var(--navy);color:var(--white);padding:0.35rem 0.8rem;border-radius:3px;font-size:0.72rem;white-space:nowrap;font-weight:500;opacity:0;transition:opacity 0.2s;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,0.3);top:50%;transform:translateY(-50%)}
+.float-wa:hover .float-label,.float-ai:hover .float-label{opacity:1}
+
+/* ======= AI CHAT WIDGET ======= */
+.ai-chat-widget{position:fixed;bottom:9rem;right:2rem;z-index:950;width:360px;background:var(--white);border:1px solid var(--divider);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(11,31,58,0.18);display:none;flex-direction:column;max-height:500px}
+.ai-chat-widget.open{display:flex}
+.chat-header{background:var(--navy);padding:1rem 1.2rem;display:flex;align-items:center;gap:0.8rem}
+.chat-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.chat-header-name{font-size:0.9rem;font-weight:600;color:var(--white)}
+.chat-header-status{font-size:0.72rem;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:0.3rem}
+.chat-header-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80}
+.chat-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:1.2rem;padding:0.2rem}
+.chat-messages{flex:1;overflow-y:auto;padding:1.2rem;display:flex;flex-direction:column;gap:0.8rem;background:var(--cream)}
+.chat-msg{max-width:80%;padding:0.7rem 1rem;border-radius:12px;font-size:0.83rem;line-height:1.65}
+.chat-msg.bot{background:var(--white);border:1px solid var(--divider);color:var(--text);border-bottom-left-radius:4px;align-self:flex-start}
+.chat-msg.user{background:var(--navy);color:var(--white);border-bottom-right-radius:4px;align-self:flex-end}
+.chat-msg.typing{color:var(--muted);font-style:italic}
+.chat-quick{padding:0.8rem 1.2rem;display:flex;gap:0.5rem;flex-wrap:wrap;background:var(--white);border-top:1px solid var(--divider)}
+.quick-btn{font-size:0.72rem;padding:0.35rem 0.75rem;border:1px solid var(--light-border);border-radius:20px;background:none;cursor:pointer;color:var(--text2);transition:all 0.2s;white-space:nowrap}
+.quick-btn:hover{border-color:var(--gold);color:var(--gold)}
+.chat-input-row{padding:0.8rem 1.2rem;background:var(--white);border-top:1px solid var(--divider);display:flex;gap:0.5rem}
+.chat-input{flex:1;border:1px solid var(--divider);border-radius:20px;padding:0.5rem 1rem;font-size:0.83rem;color:var(--text);background:var(--cream);font-family:'Inter',sans-serif}
+.chat-input:focus{outline:none;border-color:var(--gold)}
+.chat-send{width:36px;height:36px;background:var(--gold);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;flex-shrink:0}
+.chat-send:hover{background:var(--gold2)}
+.chat-send svg{width:16px;height:16px;fill:var(--navy)}
+
+/* ======= RESPONSIVE ======= */
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;gap:3rem}
+  .hero-img-panel{display:none}
+  .mission-grid,.about-two-col,.donate-grid,.speaker-two-col,.contact-grid,.obj-intro-grid{grid-template-columns:1fr}
+  .obj-grid{grid-template-columns:1fr 1fr}
+  .focus-grid,.upcoming-grid{grid-template-columns:1fr}
+  .stats-bar-inner{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .bank-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .nav-links{display:none}
+  .obj-grid{grid-template-columns:1fr}
+  .stats-bar-inner{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .amount-grid{grid-template-columns:1fr 1fr}
+  .topics-grid{grid-template-columns:1fr}
+  .mobile-menu-btn{display:flex!important}
+}
+.mobile-menu-btn{display:none!important;background:none;border:1px solid var(--divider);border-radius:3px;padding:0.4rem 0.7rem;color:var(--navy);cursor:pointer;font-size:1rem}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:'EB Garamond',serif;font-size:2rem;color:var(--white);text-decoration:none;font-weight:700;transition:color 0.2s}
+.mobile-nav a:hover{color:var(--gold)}
+.mobile-nav-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer}
+
+/* ======= ANIMATIONS ======= */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:0.1s}.delay-2{transition-delay:0.2s}
+.delay-3{transition-delay:0.3s}.delay-4{transition-delay:0.4s}
+.delay-5{transition-delay:0.5s}.delay-6{transition-delay:0.6s}
+
+/* Img placeholders */
+.img-ph{background:linear-gradient(135deg,var(--cream) 0%,var(--cream2) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:0.4rem;border:1.5px dashed rgba(184,146,42,0.3)}
+.img-ph .ph-icon{font-size:2rem;opacity:0.5}
+.img-ph .ph-fn{font-family:'Courier New',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.08em;font-weight:700}
+.img-ph .ph-desc{font-size:0.7rem;color:var(--muted);line-height:1.5;max-width:220px}
+
+/* ======= HOME PAGE: all sections always visible for scrolling ======= */
+#page-home{display:block}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#home" onclick="scrollToSection('home-hero')">
+      <div class="logo-img">
+        <img src="logo.png" alt="SIFCO Foundation Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div style="display:none;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:var(--gold2);color:var(--navy);font-weight:800;font-size:0.7rem;letter-spacing:0.05em;text-align:center;font-family:'EB Garamond',serif">SIFCO</div>
+      </div>
+      <div>
+        <div class="nav-brand-title">SIFCO Foundation</div>
+        <div class="nav-brand-sub">Safer Initiative For Communities</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home-hero" onclick="scrollToSection('home-hero')" class="active" id="nav-home">Home</a></li>
+      <li><a href="#about-anchor" onclick="scrollToSection('about-anchor')" id="nav-about">About</a></li>
+      <li><a href="#objectives" onclick="scrollToSection('objectives')" id="nav-objectives">Our Work</a></li>
+      <li><a href="#training-section" onclick="scrollToSection('training-section')" id="nav-training">Training Room</a></li>
+      <li><a href="#speaker-section" onclick="scrollToSection('speaker-section')" id="nav-speaker">Become a Speaker</a></li>
+      <li><a href="#contact-section" onclick="scrollToSection('contact-section')" id="nav-contact">Contact</a></li>
+      <li><a href="#donate-section" onclick="scrollToSection('donate-section')" class="nav-donate">Donate</a></li>
+    </ul>
+    <button class="mobile-menu-btn" onclick="document.getElementById('mobileNav').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">✕</button>
+  <a href="#home-hero" onclick="scrollToSection('home-hero');document.getElementById('mobileNav').classList.remove('open')">Home</a>
+  <a href="#about-anchor" onclick="scrollToSection('about-anchor');document.getElementById('mobileNav').classList.remove('open')">About</a>
+  <a href="#objectives" onclick="scrollToSection('objectives');document.getElementById('mobileNav').classList.remove('open')">Our Work</a>
+  <a href="#training-section" onclick="scrollToSection('training-section');document.getElementById('mobileNav').classList.remove('open')">Training Room</a>
+  <a href="#speaker-section" onclick="scrollToSection('speaker-section');document.getElementById('mobileNav').classList.remove('open')">Become a Speaker</a>
+  <a href="#contact-section" onclick="scrollToSection('contact-section');document.getElementById('mobileNav').classList.remove('open')">Contact</a>
+  <a href="#donate-section" onclick="scrollToSection('donate-section');document.getElementById('mobileNav').classList.remove('open')" style="color:var(--gold)">Donate</a>
+</div>
+
+<!-- ============================================================ -->
+<!--  ONE-PAGE SCROLLING LAYOUT — ALL SECTIONS ON SAME PAGE      -->
+<!-- ============================================================ -->
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home-hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-gold-line"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-kicker reveal">
+        <div class="hero-kicker-line"></div>
+        <span class="hero-kicker-text">Based in Maseru, Lesotho — Active Across Africa</span>
+      </div>
+      <h1 class="hero-h1 reveal delay-1">
+        Building Safer,<br>
+        More <em>Resilient</em><br>
+        Communities
+      </h1>
+      <p class="hero-lead reveal delay-2">
+        SIFCO Foundation works at the intersection of digital safety, youth empowerment, and community development — protecting children from online harm, closing the digital divide, and preparing a generation for the digital economy.
+      </p>
+      <div class="hero-actions reveal delay-3">
+        <a href="#about-anchor" onclick="scrollToSection('about-anchor')" class="btn-gold">Our Mission</a>
+        <a href="#donate-section" onclick="scrollToSection('donate-section')" class="btn-ghost">Support Our Work</a>
+      </div>
+    </div>
+    <div class="hero-img-panel reveal-right delay-2">
+      <div class="hero-img-frame">
+        <div class="img-ph" style="height:100%;min-height:400px">
+          <div class="ph-icon">📷</div>
+          <div class="ph-fn">hero-panel.jpg</div>
+          <div class="ph-desc">Youth in digital learning workshop, African setting, warm and professional</div>
+        </div>
+      </div>
+      <div class="hero-img-badge">
+        <span class="badge-num">2026</span>
+        <span class="badge-text">Founded in Lesotho</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MISSION ===== -->
+<section class="section mission" id="about-anchor">
+  <div class="section-inner">
+    <div class="mission-grid">
+      <div class="mission-img reveal-left">
+        <div class="img-ph" style="height:100%;min-height:340px;border-radius:4px">
+          <div class="ph-icon">📷</div>
+          <div class="ph-fn">mission.jpg</div>
+          <div class="ph-desc">Community workshop in Lesotho, documentary style</div>
+        </div>
+        <div class="mission-accent-box">
+          <span class="accent-num">2026</span>
+          <div class="accent-text">Founded in Maseru, Lesotho</div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-kicker">
+          <div class="section-kicker-line"></div>
+          <span class="section-kicker-text">Who We Are</span>
+        </div>
+        <h2 class="section-h2">A Foundation Built on<br><em>Purpose & Evidence</em></h2>
+        <div class="mission-quote">
+          "Digital safety is not a luxury — it is a fundamental right of every child and community."
+        </div>
+        <p class="mission-body">
+          SIFCO Foundation — the Safer Initiative for Communities Organisation — is a registered non-profit based in Lesotho, working across sub-Saharan Africa to protect children from digital harm, bridge technological divides, and create pathways to economic opportunity through digital skills.
+        </p>
+        <p class="mission-body">
+          We take a systems approach: combining policy advocacy, community education, vocational training, and technological innovation to create lasting, measurable change. Our programs reach youth in rehabilitation centers, rural communities, and urban schools — ensuring that no child is left behind in the digital age.
+        </p>
+        <a href="#objectives" onclick="scrollToSection('objectives')" class="btn-gold" style="margin-top:1rem">See Our Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat-item reveal delay-1">
+      <span class="stat-num">12,000+</span>
+      <div class="stat-label">Youth Reached</div>
+      <div class="stat-detail">Across 6 African countries</div>
+    </div>
+    <div class="stat-item reveal delay-2">
+      <span class="stat-num">8</span>
+      <div class="stat-label">Core Programs</div>
+      <div class="stat-detail">Evidence-based interventions</div>
+    </div>
+    <div class="stat-item reveal delay-3">
+      <span class="stat-num">47</span>
+      <div class="stat-label">Partner Organizations</div>
+      <div class="stat-detail">Government, NGO & private sector</div>
+    </div>
+    <div class="stat-item reveal delay-4">
+      <span class="stat-num">94%</span>
+      <div class="stat-label">Program Completion</div>
+      <div class="stat-detail">Among enrolled participants</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== OBJECTIVES ===== -->
+<section class="section objectives" id="objectives">
+  <div class="section-inner">
+    <div class="obj-intro-grid">
+      <div>
+        <div class="section-kicker reveal">
+          <div class="section-kicker-line"></div>
+          <span class="section-kicker-text">What We Do</span>
+        </div>
+        <h2 class="section-h2 reveal delay-1">Our Strategic <em>Objectives</em></h2>
+      </div>
+      <p class="section-lead reveal delay-2" style="align-self:end">
+        Grounded in the UN Sustainable Development Goals and driven by community need, our eight program areas address the most urgent challenges facing youth and communities in the digital age.
+      </p>
+    </div>
+    <div class="obj-grid">
+      <div class="obj-card reveal delay-1">
+        <span class="obj-num">01 — PROTECTION</span>
+        <div class="obj-icon-sq">🛡️</div>
+        <h3 class="obj-title">Child & Youth Protection</h3>
+        <p class="obj-body">Protecting children and youth from violence, exploitation, and digital abuse through community-driven safeguards, policy advocacy, and targeted education programs.</p>
+      </div>
+      <div class="obj-card reveal delay-2">
+        <span class="obj-num">02 — CLIMATE</span>
+        <div class="obj-icon-sq">🌱</div>
+        <h3 class="obj-title">Climate-Smart Digital Initiatives</h3>
+        <p class="obj-body">Deploying AI-powered climate vulnerability tools and social change programs to build a climate-aware generation equipped to respond to environmental challenges.</p>
+      </div>
+      <div class="obj-card reveal delay-3">
+        <span class="obj-num">03 — ACCESS</span>
+        <div class="obj-icon-sq">🌐</div>
+        <h3 class="obj-title">Bridging the Digital Divide</h3>
+        <p class="obj-body">Advocating for secure, affordable, and community-trusted internet tools — ensuring equitable access to digital infrastructure across underserved regions.</p>
+      </div>
+      <div class="obj-card reveal delay-1">
+        <span class="obj-num">04 — SAFETY</span>
+        <div class="obj-icon-sq">⚠️</div>
+        <h3 class="obj-title">Anti-Trafficking Awareness</h3>
+        <p class="obj-body">Educating communities and youth on the intersection of technology and human trafficking — building awareness and resilience against exploitation online.</p>
+      </div>
+      <div class="obj-card reveal delay-2">
+        <span class="obj-num">05 — SKILLS</span>
+        <div class="obj-icon-sq">🎓</div>
+        <h3 class="obj-title">Vocational & Digital Skills</h3>
+        <p class="obj-body">Delivering certified vocational and digital training programs that equip youth with practical, market-relevant capabilities for sustained economic participation.</p>
+      </div>
+      <div class="obj-card reveal delay-3">
+        <span class="obj-num">06 — INNOVATION</span>
+        <div class="obj-icon-sq">🚀</div>
+        <h3 class="obj-title">Digital Inclusion & Innovation</h3>
+        <p class="obj-body">Catalyzing youth-led innovation, entrepreneurship, and employment through digital platforms, incubation support, and ecosystem partnerships.</p>
+      </div>
+      <div class="obj-card reveal delay-1">
+        <span class="obj-num">07 — LITERACY</span>
+        <div class="obj-icon-sq">📚</div>
+        <h3 class="obj-title">Digital Literacy & E-Learning</h3>
+        <p class="obj-body">Delivering digital literacy and e-learning programs in rehabilitation centers, detention facilities, and Survivor Care institutions — reaching the most vulnerable.</p>
+      </div>
+      <div class="obj-card reveal delay-2">
+        <span class="obj-num">08 — ECONOMY</span>
+        <div class="obj-icon-sq">💼</div>
+        <h3 class="obj-title">Digital Livelihoods & Marketplace</h3>
+        <p class="obj-body">Connecting upskilled youth to digital marketplaces and remote work opportunities — transforming newly acquired skills into sustainable livelihoods.</p>
+      </div>
+      <div class="obj-card reveal delay-3" style="background:var(--navy);border-color:var(--navy)">
+        <span class="obj-num" style="color:var(--gold2)">GET INVOLVED</span>
+        <h3 class="obj-title" style="color:var(--white);font-size:1.3rem;margin-bottom:1rem;margin-top:1rem">Partner with us to amplify impact</h3>
+        <p class="obj-body" style="color:rgba(255,255,255,0.55);margin-bottom:2rem">Whether you are a funder, implementer, or community leader, we welcome collaboration at every level.</p>
+        <a href="#contact-section" onclick="scrollToSection('contact-section')" class="btn-gold">Start a Conversation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOCUS PILLARS ===== -->
+<section class="section focus" id="focus">
+  <div class="section-inner">
+    <div class="section-kicker reveal">
+      <div class="section-kicker-line"></div>
+      <span class="section-kicker-text">Strategic Focus</span>
+    </div>
+    <h2 class="section-h2 reveal delay-1">Three Pillars of<br><em>Systemic Change</em></h2>
+    <p class="section-lead reveal delay-2">Our work is organised across three interconnected domains, each reinforcing the other to create durable, community-owned outcomes.</p>
+    <div class="focus-grid">
+      <div class="focus-card reveal delay-1">
+        <div class="focus-card-num">01</div>
+        <div class="focus-card-tag">Protection</div>
+        <h3 class="focus-card-title">Online Safety & Child Protection</h3>
+        <p class="focus-card-body">Comprehensive programs that equip children, caregivers, and communities to identify, report, and prevent digital exploitation — supported by national policy advocacy and regional coalitions.</p>
+      </div>
+      <div class="focus-card reveal delay-2">
+        <div class="focus-card-num">02</div>
+        <div class="focus-card-tag">Empowerment</div>
+        <h3 class="focus-card-title">Skills, Employment & Digital Economy</h3>
+        <p class="focus-card-body">Structured training pathways from digital literacy to advanced vocational certification, linked directly to marketplace platforms and employer networks that generate real income opportunities.</p>
+      </div>
+      <div class="focus-card reveal delay-3">
+        <div class="focus-card-num">03</div>
+        <div class="focus-card-tag">Inclusion</div>
+        <h3 class="focus-card-title">Access, Literacy & Climate Resilience</h3>
+        <p class="focus-card-body">Infrastructure advocacy, community e-learning centers, virtual libraries, and AI-assisted climate action tools — ensuring marginalized communities participate fully in the digital transition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT (FULL) ===== -->
+<section id="about-section" style="background:var(--navy)">
+  <div style="max-width:1280px;margin:0 auto;padding:7rem 2.5rem">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
+      <div>
+        <div class="section-kicker reveal" style="margin-bottom:1.5rem">
+          <div class="section-kicker-line"></div>
+          <span class="section-kicker-text" style="color:var(--gold2)">About the Foundation</span>
+        </div>
+        <h2 class="section-h2 reveal delay-1" style="color:var(--white)">From <em>Lesotho</em><br>to the World</h2>
+        <p class="mission-body reveal delay-2" style="color:rgba(255,255,255,0.65)">Founded in Maseru, Lesotho in 2026, SIFCO Foundation emerged from direct observation of the harms that unregulated digital access was causing in vulnerable communities — from children exposed to exploitation online, to youth unable to access the economic opportunities the internet offered.</p>
+        <p class="mission-body reveal delay-3" style="color:rgba(255,255,255,0.65)">Our founders recognized that the solution required more than awareness campaigns. It required a sustained, multi-sectoral approach combining education, policy reform, community mobilization, and skills development — backed by data and delivered with cultural sensitivity.</p>
+        <p class="mission-body reveal delay-4" style="color:rgba(255,255,255,0.65)">Today, SIFCO operates across six African countries, with partnerships spanning government ministries, the private sector, and civil society. We measure our success not by activities, but by outcomes: safer children, employed youth, and more resilient communities.</p>
+        <div class="mission-quote reveal delay-5" style="margin-top:2rem;color:var(--gold3)">
+          "We believe that every child, regardless of geography or circumstance, deserves to be safe, connected, and equipped for the future."
+        </div>
+      </div>
+      <div>
+        <div class="about-story-img reveal-right delay-2" style="position:static;border-color:rgba(184,146,42,0.2)">
+          <div class="img-ph" style="height:100%;min-height:440px;border-radius:4px">
+            <div class="ph-icon" style="color:rgba(184,146,42,0.6)">📷</div>
+            <div class="ph-fn">about-story.jpg</div>
+            <div class="ph-desc" style="color:rgba(255,255,255,0.4)">Leadership team, candid professional setting, Lesotho</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem" class="reveal delay-3">
+          <div style="padding:1.5rem;border:1px solid rgba(184,146,42,0.2);border-radius:4px;text-align:center">
+            <div style="font-family:'EB Garamond',serif;font-size:2rem;color:var(--gold);font-weight:700">2026</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem">Year Founded</div>
+          </div>
+          <div style="padding:1.5rem;border:1px solid rgba(184,146,42,0.2);border-radius:4px;text-align:center">
+            <div style="font-family:'EB Garamond',serif;font-size:2rem;color:var(--gold);font-weight:700">6</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem">Countries Active</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div style="margin-top:6rem">
+      <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text" style="color:var(--gold2)">Our People</span></div>
+      <h2 class="section-h2 reveal delay-1" style="color:var(--white)">Leadership <em>Team</em></h2>
+      <p class="section-lead reveal delay-2" style="color:rgba(255,255,255,0.55)">Experienced practitioners from development, technology, law, and education — united by a shared commitment to community safety and digital equity.</p>
+      <div class="team-grid" style="margin-top:3rem">
+        <div class="team-card reveal delay-1">
+          <div class="team-photo"><div class="img-ph" style="height:100%;border-radius:50%"><div style="font-size:0.5rem;color:var(--muted)">team-1.jpg</div></div></div>
+          <div class="team-name" style="color:var(--white)">Executive Director</div>
+          <div class="team-role">Leadership</div>
+          <p class="team-bio">Over 15 years of experience in community development, digital rights, and NGO management across southern Africa.</p>
+        </div>
+        <div class="team-card reveal delay-2">
+          <div class="team-photo"><div class="img-ph" style="height:100%;border-radius:50%"><div style="font-size:0.5rem;color:var(--muted)">team-2.jpg</div></div></div>
+          <div class="team-name" style="color:var(--white)">Director of Programs</div>
+          <div class="team-role">Programs</div>
+          <p class="team-bio">Specialist in child protection, digital literacy, and evidence-based program design with regional and international experience.</p>
+        </div>
+        <div class="team-card reveal delay-3">
+          <div class="team-photo"><div class="img-ph" style="height:100%;border-radius:50%"><div style="font-size:0.5rem;color:var(--muted)">team-3.jpg</div></div></div>
+          <div class="team-name" style="color:var(--white)">Director of Partnerships</div>
+          <div class="team-role">Partnerships & Fundraising</div>
+          <p class="team-bio">Background in international development finance and donor relations with experience across public and private sectors in Africa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRAINING ROOM ===== -->
+<section id="training-section" style="background:var(--cream)">
+  <div style="max-width:1280px;margin:0 auto;padding:7rem 2.5rem">
+    <div class="training-badge reveal">🟢 &nbsp; Live sessions available</div>
+    <div class="section-kicker reveal" style="margin-top:1rem"><div class="section-kicker-line"></div><span class="section-kicker-text">Virtual Learning Hub</span></div>
+    <h2 class="section-h2 reveal delay-1">SIFCO <em>Training Room</em></h2>
+    <p class="section-lead reveal delay-2" style="max-width:700px">The SIFCO Training Room is a live, virtual workshop space where registered participants join scheduled sessions with expert facilitators and guest speakers. Sessions are interactive, community-focused, and free for qualifying participants.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem">
+      <div class="focus-card reveal delay-1" style="text-align:center;padding:2rem 1.5rem">
+        <div style="font-size:2rem;margin-bottom:1rem">📅</div>
+        <h4 style="font-family:'EB Garamond',serif;color:var(--navy);margin-bottom:0.5rem">Scheduled Sessions</h4>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Live workshops run weekly. Register to receive calendar invites and joining links.</p>
+      </div>
+      <div class="focus-card reveal delay-2" style="text-align:center;padding:2rem 1.5rem">
+        <div style="font-size:2rem;margin-bottom:1rem">🎤</div>
+        <h4 style="font-family:'EB Garamond',serif;color:var(--navy);margin-bottom:0.5rem">Expert Facilitators</h4>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Sessions led by vetted practitioners, academics, and field experts from our speaker network.</p>
+      </div>
+      <div class="focus-card reveal delay-3" style="text-align:center;padding:2rem 1.5rem">
+        <div style="font-size:2rem;margin-bottom:1rem">🏅</div>
+        <h4 style="font-family:'EB Garamond',serif;color:var(--navy);margin-bottom:0.5rem">Certificates</h4>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Participants who complete a session series receive an official SIFCO certificate of participation.</p>
+      </div>
+      <div class="focus-card reveal delay-4" style="text-align:center;padding:2rem 1.5rem">
+        <div style="font-size:2rem;margin-bottom:1rem">🌍</div>
+        <h4 style="font-family:'EB Garamond',serif;color:var(--navy);margin-bottom:0.5rem">Open to All</h4>
+        <p style="font-size:0.8rem;color:var(--muted);line-height:1.7">Free for community members, practitioners, and youth across Africa and the diaspora.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:4rem">
+      <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text">Schedule</span></div>
+      <h2 class="section-h2 reveal delay-1">Upcoming <em>Sessions</em></h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem">
+        <div class="event-card reveal delay-1">
+          <div class="event-card-top"><span class="event-date">14</span><span class="event-month">May 2026</span><div class="event-tag">Open</div></div>
+          <div class="event-card-body">
+            <h4 class="event-title">Online Safety for Caregivers & Educators</h4>
+            <div class="event-detail">🕙 10:00 AM – 12:00 PM CAT</div>
+            <div class="event-detail">🎤 SIFCO Child Protection Unit</div>
+            <div class="event-detail">👥 Max 50 participants</div>
+          </div>
+          <a href="mailto:training@sifcofoundation.org?subject=Registration: Online Safety for Caregivers" class="event-card-btn">Register Now</a>
+        </div>
+        <div class="event-card reveal delay-2">
+          <div class="event-card-top"><span class="event-date">21</span><span class="event-month">May 2026</span><div class="event-tag">Open</div></div>
+          <div class="event-card-body">
+            <h4 class="event-title">Digital Livelihoods: From Skills to Income</h4>
+            <div class="event-detail">🕙 2:00 PM – 4:30 PM CAT</div>
+            <div class="event-detail">🎤 SIFCO Skills Development Unit</div>
+            <div class="event-detail">👥 Max 80 participants</div>
+          </div>
+          <a href="mailto:training@sifcofoundation.org?subject=Registration: Digital Livelihoods" class="event-card-btn">Register Now</a>
+        </div>
+        <div class="event-card reveal delay-3">
+          <div class="event-card-top"><span class="event-date">04</span><span class="event-month">Jun 2026</span><div class="event-tag">Filling Fast</div></div>
+          <div class="event-card-body">
+            <h4 class="event-title">AI & Climate Action for Young Africans</h4>
+            <div class="event-detail">🕙 11:00 AM – 1:00 PM CAT</div>
+            <div class="event-detail">🎤 Guest Expert Panel</div>
+            <div class="event-detail">👥 Max 120 participants</div>
+          </div>
+          <a href="mailto:training@sifcofoundation.org?subject=Registration: AI and Climate Action" class="event-card-btn">Register Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="training-room" id="join-room" style="margin-top:4rem">
+      <div class="training-room-header">
+        <div class="training-room-title">🖥 Virtual Meeting Room</div>
+        <div class="training-room-sub">Live sessions are accessed here. You must be registered to enter an active session.</div>
+      </div>
+      <div class="meeting-embed-placeholder">
+        <div class="meeting-icon">📡</div>
+        <h3>Meeting Platform Integration</h3>
+        <p>Paste your Zoom Web SDK, Whereby embed, Google Meet, or Teams embed code here to activate the Training Room for live sessions.</p>
+        <div class="embed-code-note">&lt;!-- Paste your meeting API embed here --&gt;</div>
+        <p style="margin-top:1.5rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">Integration support: <a href="mailto:training@sifcofoundation.org" style="color:var(--gold2)">training@sifcofoundation.org</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BECOME A SPEAKER ===== -->
+<section id="speaker-section" style="background:var(--white)">
+  <div style="max-width:1280px;margin:0 auto;padding:7rem 2.5rem">
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start">
+      <div>
+        <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text">Join Our Network</span></div>
+        <h2 class="section-h2 reveal delay-1">Become a SIFCO<br><em>Speaker or Facilitator</em></h2>
+        <p class="section-lead reveal delay-2" style="max-width:100%">Share your expertise with communities across Africa. We invite practitioners, academics, advocates, and thought leaders to contribute to our programs.</p>
+        <div style="margin-top:2rem">
+          <div class="speaker-benefit reveal delay-1"><div class="speaker-benefit-icon">🌍</div><div><h4>Reach Underserved Communities</h4><p>Your insights will reach youth, practitioners, and community leaders who lack access to mainstream conferences and professional networks.</p></div></div>
+          <div class="speaker-benefit reveal delay-2"><div class="speaker-benefit-icon">🎓</div><div><h4>Contribute to Certified Programs</h4><p>Participate in structured, accredited programs — your session is integrated into a curriculum that learners receive formal recognition for completing.</p></div></div>
+          <div class="speaker-benefit reveal delay-3"><div class="speaker-benefit-icon">🤝</div><div><h4>Join a Credible Network</h4><p>Be listed on SIFCO's official speaker directory alongside practitioners from government agencies and leading regional NGOs.</p></div></div>
+          <div class="speaker-benefit reveal delay-4"><div class="speaker-benefit-icon">📡</div><div><h4>Virtual or In-Person Options</h4><p>Sessions can be delivered online via our Training Room or in-person at community events and partner institutions across the region.</p></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="speaker-img reveal-right">
+          <div class="img-ph" style="height:260px;border-radius:4px">
+            <div class="ph-icon">📷</div>
+            <div class="ph-fn">speaker-photo.jpg</div>
+            <div class="ph-desc">Facilitator engaging workshop participants, dynamic and candid</div>
+          </div>
+        </div>
+        <div class="speaker-form reveal-right delay-2">
+          <div class="speaker-form-title">Speaker Application</div>
+          <div class="speaker-form-sub">Applications reviewed within 5 business days. All speakers are vetted and onboarded formally.</div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Jane"></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="jane@organization.org"></div>
+          <div class="form-group"><label class="form-label">Organization / Affiliation</label><input class="form-input" type="text" placeholder="e.g. University, NGO, Government"></div>
+          <div class="form-group"><label class="form-label">LinkedIn / Professional Profile URL</label><input class="form-input" type="url" placeholder="https://linkedin.com/in/..."></div>
+          <div class="form-group">
+            <label class="form-label">Areas of Expertise</label>
+            <div class="topics-grid" style="margin-top:0.5rem">
+              <label class="topic-check"><input type="checkbox"> Child Protection</label>
+              <label class="topic-check"><input type="checkbox"> Digital Safety</label>
+              <label class="topic-check"><input type="checkbox"> Cybersecurity</label>
+              <label class="topic-check"><input type="checkbox"> Climate & Environment</label>
+              <label class="topic-check"><input type="checkbox"> Youth Employment</label>
+              <label class="topic-check"><input type="checkbox"> Digital Literacy</label>
+              <label class="topic-check"><input type="checkbox"> Human Trafficking</label>
+              <label class="topic-check"><input type="checkbox"> AI & Technology</label>
+              <label class="topic-check"><input type="checkbox"> Policy & Advocacy</label>
+              <label class="topic-check"><input type="checkbox"> Mental Health</label>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">Brief Bio / Proposed Topic</label><textarea class="form-input" rows="4" placeholder="Describe your background and what you would like to present..."></textarea></div>
+          <div class="form-group">
+            <label class="form-label">Preferred Format</label>
+            <select class="form-select form-input">
+              <option>Virtual webinar (60 min)</option>
+              <option>In-person workshop (half day)</option>
+              <option>In-person workshop (full day)</option>
+              <option>Panel discussion</option>
+              <option>Open to discussion</option>
+            </select>
+          </div>
+          <button class="btn-full btn-donate" onclick="handleSpeakerApp()">Submit Application</button>
+          <p style="font-size:0.75rem;color:var(--muted);margin-top:1rem;text-align:center">Enquiries: <a href="mailto:training@sifcofoundation.org" style="color:var(--gold)">training@sifcofoundation.org</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONATE ===== -->
+<section id="donate-section" style="background:var(--cream)">
+  <div style="padding:7rem 2.5rem 2rem">
+    <div style="max-width:1280px;margin:0 auto">
+      <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text">Support Our Work</span></div>
+      <h2 class="section-h2 reveal delay-1" style="font-size:clamp(2rem,4vw,3.5rem)">Every Contribution<br><em>Changes a Life</em></h2>
+      <p class="section-lead reveal delay-2" style="margin-top:1rem">Your donation directly funds child protection programs, digital skills training, and community safety initiatives across six African countries. 100% of program funds reach beneficiaries.</p>
+    </div>
+  </div>
+  <div class="donate-grid">
+    <div class="reveal-left">
+      <div class="section-kicker" style="margin-bottom:1.5rem"><div class="section-kicker-line"></div><span class="section-kicker-text">Where Your Money Goes</span></div>
+      <h2 class="section-h2" style="font-size:1.8rem">Your Impact</h2>
+      <div style="margin-top:1.5rem">
+        <div class="donate-impact-item"><div class="donate-impact-icon">🛡️</div><div class="donate-impact-text"><h4>$25 / month</h4><p>Provides digital safety training to one child for an entire school year, including workbooks and facilitator time.</p></div></div>
+        <div class="donate-impact-item"><div class="donate-impact-icon">💻</div><div class="donate-impact-text"><h4>$75 / month</h4><p>Enrolls one youth in a full vocational digital skills program with certification and job placement support.</p></div></div>
+        <div class="donate-impact-item"><div class="donate-impact-icon">🌐</div><div class="donate-impact-text"><h4>$200 / month</h4><p>Funds an e-learning station at a rehabilitation center, serving up to 40 youth per week.</p></div></div>
+        <div class="donate-impact-item"><div class="donate-impact-icon">🏛️</div><div class="donate-impact-text"><h4>$1,000+</h4><p>Establishes a community digital safety hub — complete with equipment, training, and 12-month facilitation.</p></div></div>
+      </div>
+      <div style="margin-top:2rem;padding:1.5rem;background:var(--navy);border-radius:4px">
+        <div style="font-size:0.7rem;color:var(--gold2);letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:0.5rem">Institutional Giving</div>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.85rem;line-height:1.7;margin-bottom:1rem">For corporate, foundation, or government funding inquiries, our Partnerships team can discuss project-specific funding, multi-year commitments, and formal MOU arrangements.</p>
+        <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold2);font-size:0.83rem;font-weight:600;text-decoration:none">donations@sifcofoundation.org →</a>
+      </div>
+    </div>
+    <div class="reveal-right delay-2">
+      <div class="donate-form-panel">
+        <div class="donate-form-title">Make a Donation</div>
+        <div class="donate-form-sub">Secure contributions processed via encrypted payment gateway.</div>
+        <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem">
+          <button onclick="setFreq(this,'monthly')" class="amount-btn selected" style="flex:1">Monthly</button>
+          <button onclick="setFreq(this,'once')" class="amount-btn" style="flex:1">One-Time</button>
+        </div>
+        <div class="amount-grid">
+          <button class="amount-btn" onclick="setAmount(this,'25')">$25</button>
+          <button class="amount-btn selected" onclick="setAmount(this,'75')">$75</button>
+          <button class="amount-btn" onclick="setAmount(this,'150')">$150</button>
+          <button class="amount-btn" onclick="setAmount(this,'300')">$300</button>
+          <button class="amount-btn" onclick="setAmount(this,'1000')">$1,000</button>
+          <button class="amount-btn" onclick="setAmount(this,'custom')">Other</button>
+        </div>
+        <div class="form-group" id="custom-amount-group" style="display:none">
+          <label class="form-label">Custom Amount (USD)</label>
+          <input class="form-input" type="number" placeholder="Enter amount" min="1">
+        </div>
+        <div class="form-group" style="margin-top:1rem">
+          <label class="form-label">Dedication (Optional)</label>
+          <input class="form-input" type="text" placeholder="In honor of / in memory of...">
+        </div>
+        <div style="border-top:1px solid var(--divider);padding-top:1.5rem;margin-top:0.5rem">
+          <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:1rem">Your Details</div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Jane"></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="jane@example.com"></div>
+          <div class="form-group"><label class="form-label">Country</label>
+            <select class="form-select form-input">
+              <option>Select country...</option>
+              <option>Lesotho</option><option>South Africa</option><option>United States</option><option>United Kingdom</option><option>Kenya</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div style="border-top:1px solid var(--divider);padding-top:1.5rem;margin-top:0.5rem">
+          <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;margin-bottom:1rem">Payment</div>
+          <div class="form-group"><label class="form-label">Card Number</label><input class="form-input" type="text" placeholder="•••• •••• •••• ••••"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Expiry</label><input class="form-input" type="text" placeholder="MM / YY"></div>
+            <div class="form-group"><label class="form-label">CVV</label><input class="form-input" type="text" placeholder="•••"></div>
+          </div>
+        </div>
+        <button class="btn-full btn-donate" style="margin-top:0.5rem" onclick="handleDonate()">Donate $75 / Month</button>
+        <div class="secure-note">🔒 256-bit SSL encryption · PCI DSS compliant</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bank transfer -->
+  <div class="other-ways">
+    <div class="other-ways-inner">
+      <div class="section-kicker"><div class="section-kicker-line"></div><span class="section-kicker-text">Other Ways to Give</span></div>
+      <h2 class="section-h2" style="font-size:1.8rem;margin-top:0.5rem">Additional <em>Giving Methods</em></h2>
+      <div class="bank-grid">
+        <div class="bank-card"><h4>Bank Transfer (Local)</h4><div class="bank-detail"><strong>Bank:</strong> Standard Lesotho Bank</div><div class="bank-detail"><strong>Account Name:</strong> SIFCO Foundation</div><div class="bank-detail"><strong>Account Number:</strong> Contact us for details</div><div class="bank-detail"><strong>Branch:</strong> Maseru Main</div><div style="margin-top:1rem"><a href="mailto:donations@sifcofoundation.org" style="color:var(--gold);font-size:0.8rem;font-weight:600">Request banking details →</a></div></div>
+        <div class="bank-card"><h4>International Wire Transfer</h4><div class="bank-detail">For international donations and institutional transfers, our finance team provides full SWIFT/IBAN details and can issue an official MOU or receipt for tax purposes.</div><div style="margin-top:1rem"><a href="mailto:donations@sifcofoundation.org" style="color:var(--gold);font-size:0.8rem;font-weight:600">donations@sifcofoundation.org →</a></div></div>
+        <div class="bank-card"><h4>Mobile Money</h4><div class="bank-detail">We accept M-Pesa and EcoCash transfers. Please contact our office to confirm current mobile money details and to ensure your donation is properly receipted.</div><div style="margin-top:1rem"><a href="mailto:donations@sifcofoundation.org" style="color:var(--gold);font-size:0.8rem;font-weight:600">Request mobile number →</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact-section" style="background:var(--white)">
+  <div style="padding:7rem 2.5rem 0;background:var(--cream);border-bottom:1px solid var(--divider)">
+    <div style="max-width:1280px;margin:0 auto;padding-bottom:4rem">
+      <div class="section-kicker"><div class="section-kicker-line"></div><span class="section-kicker-text">Get In Touch</span></div>
+      <h2 class="section-h2" style="font-size:clamp(2rem,4vw,3.5rem);margin-top:0.5rem">We'd Like to<br><em>Hear From You</em></h2>
+      <p class="section-lead" style="margin-top:1rem">Whether you are a potential partner, donor, community member, or journalist — our team responds within two business days.</p>
+    </div>
+  </div>
+  <div style="max-width:1280px;margin:0 auto;padding:5rem 2.5rem">
+    <div class="contact-grid">
+      <div>
+        <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text">Our Departments</span></div>
+        <h2 class="section-h2 reveal delay-1" style="font-size:1.8rem">Contact the <em>Right Team</em></h2>
+        <div style="margin-top:2rem">
+          <div class="contact-card reveal delay-1"><div class="contact-card-dept">General Enquiries</div><div class="contact-card-email">info@sifcofoundation.org</div><div class="contact-card-desc">Questions about SIFCO, our programs, or general information requests.</div></div>
+          <div class="contact-card reveal delay-2"><div class="contact-card-dept">Donations & Funding</div><div class="contact-card-email">donations@sifcofoundation.org</div><div class="contact-card-desc">Individual donations, institutional giving, and financial partnership enquiries.</div></div>
+          <div class="contact-card reveal delay-3"><div class="contact-card-dept">Training & Speakers</div><div class="contact-card-email">training@sifcofoundation.org</div><div class="contact-card-desc">Workshop registration, speaker applications, and session scheduling.</div></div>
+          <div class="contact-card reveal delay-4"><div class="contact-card-dept">Partnerships & Collaboration</div><div class="contact-card-email">partnerships@sifcofoundation.org</div><div class="contact-card-desc">MOU discussions, co-implementation, research collaboration, and strategic alliances.</div></div>
+        </div>
+        <div style="margin-top:2rem;padding:1.5rem;background:var(--cream);border:1px solid var(--divider);border-radius:4px">
+          <div style="font-weight:600;color:var(--navy);margin-bottom:0.4rem;font-size:0.9rem">📍 Physical Address</div>
+          <div style="font-size:0.83rem;color:var(--muted);line-height:1.7">SIFCO Foundation<br>Maseru, Kingdom of Lesotho<br><em style="font-size:0.78rem">Exact address provided upon confirmed appointment.</em></div>
+        </div>
+      </div>
+      <div class="contact-form-panel reveal-right delay-2">
+        <div class="contact-form-title">Send a Message</div>
+        <div class="contact-form-sub">All messages are reviewed by our team and responded to within 2 business days.</div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Jane"></div>
+          <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="jane@organization.org"></div>
+        <div class="form-group"><label class="form-label">Organization (if applicable)</label><input class="form-input" type="text" placeholder="e.g. NGO, University, Government"></div>
+        <div class="form-group">
+          <label class="form-label">Subject / Department</label>
+          <select class="form-select form-input">
+            <option>General Enquiry → info@sifcofoundation.org</option>
+            <option>Donation / Funding → donations@sifcofoundation.org</option>
+            <option>Training / Speaker → training@sifcofoundation.org</option>
+            <option>Partnership / Collaboration → partnerships@sifcofoundation.org</option>
+            <option>Media / Press → info@sifcofoundation.org</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input" rows="6" placeholder="Please describe your enquiry in detail..."></textarea></div>
+        <div class="form-group">
+          <label class="form-label">How did you hear about us?</label>
+          <select class="form-select form-input">
+            <option>Select one...</option>
+            <option>Social media</option>
+            <option>Partner organization</option>
+            <option>Search engine</option>
+            <option>Conference or event</option>
+            <option>Word of mouth</option>
+          </select>
+        </div>
+        <button class="btn-full btn-donate" onclick="handleContact()">Send Message</button>
+        <p style="font-size:0.75rem;color:var(--muted);margin-top:1rem;text-align:center">Your information is never shared with third parties.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER — BRIGHT CREAM ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-gold-rule"></div>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo">
+          <div class="footer-logo-img">
+            <img src="logo.png" alt="SIFCO Foundation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:var(--gold2);color:var(--navy);font-weight:800;font-size:0.65rem;font-family:'EB Garamond',serif">SIFCO</div>
+          </div>
+          <div>
+            <div class="footer-brand-name">SIFCO Foundation</div>
+            <div class="footer-brand-sub">Safer Initiative For Communities</div>
+          </div>
+        </div>
+        <p class="footer-desc">Protecting children, bridging digital divides, empowering youth, and building climate-smart communities across Africa and beyond. Registered non-profit, Maseru, Kingdom of Lesotho. Founded 2026.</p>
+        <div class="footer-social" style="margin-top:1rem">
+          <a href="https://twitter.com" target="_blank">𝕏</a>
+          <a href="https://linkedin.com" target="_blank">in</a>
+          <a href="https://facebook.com" target="_blank">f</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Our Work</div>
+        <ul>
+          <li><a href="#objectives" onclick="scrollToSection('objectives')">Child Protection</a></li>
+          <li><a href="#objectives" onclick="scrollToSection('objectives')">Digital Skills</a></li>
+          <li><a href="#objectives" onclick="scrollToSection('objectives')">E-Learning</a></li>
+          <li><a href="#objectives" onclick="scrollToSection('objectives')">Climate Action</a></li>
+          <li><a href="#objectives" onclick="scrollToSection('objectives')">Anti-Trafficking</a></li>
+          <li><a href="#objectives" onclick="scrollToSection('objectives')">Digital Livelihoods</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Organisation</div>
+        <ul>
+          <li><a href="#about-anchor" onclick="scrollToSection('about-anchor')">About SIFCO</a></li>
+          <li><a href="#about-section" onclick="scrollToSection('about-section')">Leadership Team</a></li>
+          <li><a href="#speaker-section" onclick="scrollToSection('speaker-section')">Become a Speaker</a></li>
+          <li><a href="#training-section" onclick="scrollToSection('training-section')">Training Room</a></li>
+          <li><a href="#donate-section" onclick="scrollToSection('donate-section')">Donate</a></li>
+          <li><a href="#contact-section" onclick="scrollToSection('contact-section')">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <ul>
+          <li><a href="mailto:info@sifcofoundation.org">info@sifcofoundation.org</a></li>
+          <li><a href="mailto:donations@sifcofoundation.org">donations@sifcofoundation.org</a></li>
+          <li><a href="mailto:training@sifcofoundation.org">training@sifcofoundation.org</a></li>
+          <li><a href="mailto:partnerships@sifcofoundation.org">partnerships@sifcofoundation.org</a></li>
+          <li style="margin-top:0.8rem;font-size:0.78rem;color:var(--muted)">Maseru, Kingdom of Lesotho</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">© 2026 SIFCO Foundation. All rights reserved. Registered Non-Profit Organisation, Lesotho.</div>
+      <div class="footer-bottom-right">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Annual Report</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<div class="float-container">
+  <div style="position:relative">
+    <button class="float-ai" onclick="toggleChat()">🤖<span class="float-label">AI Assistant</span></button>
+  </div>
+  <div style="position:relative">
+    <a class="float-wa" href="https://wa.me/26657000000?text=Hello%20SIFCO%20Foundation" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      <span class="float-label">WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<!-- ===== AI CHAT WIDGET ===== -->
+<div class="ai-chat-widget" id="chatWidget">
+  <div class="chat-header">
+    <div class="chat-avatar">🌍</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">SIFCO Assistant</div>
+      <div class="chat-header-status">Online — Typically replies instantly</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg bot">Hello! I'm the SIFCO Foundation virtual assistant. How can I help you today? I can answer questions about our programs, how to donate, speaker opportunities, or training workshops.</div>
+  </div>
+  <div class="chat-quick" id="quickReplies">
+    <button class="quick-btn" onclick="quickAsk('How do I donate?')">How to donate?</button>
+    <button class="quick-btn" onclick="quickAsk('Tell me about your programs')">Our programs</button>
+    <button class="quick-btn" onclick="quickAsk('How can I become a speaker?')">Become a speaker</button>
+    <button class="quick-btn" onclick="quickAsk('Tell me about Training Room workshops')">Training Room</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" type="text" placeholder="Type your question..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// ======= SMOOTH SCROLL NAV =======
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const offset = 88;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+  return false;
+}
+
+// ======= ACTIVE NAV ON SCROLL =======
+const sections = [
+  { id: 'home-hero', nav: 'nav-home' },
+  { id: 'about-anchor', nav: 'nav-about' },
+  { id: 'objectives', nav: 'nav-objectives' },
+  { id: 'training-section', nav: 'nav-training' },
+  { id: 'speaker-section', nav: 'nav-speaker' },
+  { id: 'contact-section', nav: 'nav-contact' },
+  { id: 'donate-section', nav: null }
+];
+
+function updateActiveNav() {
+  const scrollY = window.pageYOffset + 120;
+  let current = sections[0];
+  sections.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el && el.offsetTop <= scrollY) current = s;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  if (current.nav) {
+    const el = document.getElementById(current.nav);
+    if (el) el.classList.add('active');
+  }
+}
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+// ======= SCROLL REVEAL =======
+function initReveal() {
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  els.forEach(el => obs.observe(el));
+}
+window.addEventListener('DOMContentLoaded', initReveal);
+setTimeout(initReveal, 300);
+
+// ======= DONATE FORM =======
+function setAmount(btn, val) {
+  document.querySelectorAll('.amount-grid .amount-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('custom-amount-group').style.display = val === 'custom' ? 'block' : 'none';
+}
+function setFreq(btn, freq) {
+  btn.parentElement.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+function handleDonate() {
+  alert('Thank you for your generosity! In a live environment this would process your payment securely. Please email donations@sifcofoundation.org to complete your donation.');
+}
+function handleSpeakerApp() {
+  alert('Thank you for your interest! Your application has been received. Our team will review it and respond within 5 business days.');
+}
+function handleContact() {
+  alert('Thank you for your message. We will respond within 2 business days.');
+}
+
+// ======= AI CHAT =======
+function toggleChat() {
+  const w = document.getElementById('chatWidget');
+  w.classList.toggle('open');
+  if (w.classList.contains('open')) document.getElementById('chatInput').focus();
+}
+
+const responses = {
+  'donate': 'You can donate via the <b>Donate section</b> on this page using a credit/debit card, bank transfer, or mobile money. 100% of program funds reach beneficiaries. Email <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold)">donations@sifcofoundation.org</a> for institutional giving.',
+  'speaker': 'We welcome speakers and facilitators across digital safety, child protection, climate action, livelihoods, and technology. Scroll to the <b>Become a Speaker</b> section to apply, or email <a href="mailto:training@sifcofoundation.org" style="color:var(--gold)">training@sifcofoundation.org</a>.',
+  'training': 'The SIFCO Training Room hosts live, facilitated sessions weekly — free for qualifying participants. Scroll to the <b>Training Room</b> section to see upcoming sessions and register.',
+  'programs': 'SIFCO operates 8 core programs: Child & Youth Protection, Climate-Smart Digital Initiatives, Bridging the Digital Divide, Anti-Trafficking Awareness, Vocational & Digital Skills, Digital Inclusion, Digital Literacy & E-Learning, and Digital Livelihoods.',
+  'contact': 'Reach us at:<br>• General: <a href="mailto:info@sifcofoundation.org" style="color:var(--gold)">info@sifcofoundation.org</a><br>• Donations: <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold)">donations@sifcofoundation.org</a><br>• Training: <a href="mailto:training@sifcofoundation.org" style="color:var(--gold)">training@sifcofoundation.org</a>',
+  'lesotho': 'SIFCO Foundation was founded in 2026 and is headquartered in Maseru, the capital of the Kingdom of Lesotho. Our programs operate across southern Africa and beyond.',
+  'default': 'Thank you for your question. For the most accurate information, please email <a href="mailto:info@sifcofoundation.org" style="color:var(--gold)">info@sifcofoundation.org</a> and our team will respond within 2 business days.'
+};
+
+function getResponse(msg) {
+  const m = msg.toLowerCase();
+  if (m.includes('donat') || m.includes('give') || m.includes('contribut') || m.includes('fund')) return responses['donate'];
+  if (m.includes('speaker') || m.includes('facilitat') || m.includes('present')) return responses['speaker'];
+  if (m.includes('train') || m.includes('workshop') || m.includes('session') || m.includes('learn')) return responses['training'];
+  if (m.includes('program') || m.includes('work') || m.includes('initiative')) return responses['programs'];
+  if (m.includes('contact') || m.includes('email') || m.includes('reach')) return responses['contact'];
+  if (m.includes('lesotho') || m.includes('maseru') || m.includes('africa') || m.includes('where') || m.includes('found')) return responses['lesotho'];
+  return responses['default'];
+}
+
+function addMsg(text, type) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + type;
+  div.innerHTML = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendChat() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  addMsg(msg, 'user');
+  input.value = '';
+  document.getElementById('quickReplies').style.display = 'none';
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'chat-msg bot typing';
+  typingDiv.textContent = 'Typing...';
+  document.getElementById('chatMessages').appendChild(typingDiv);
+  document.getElementById('chatMessages').scrollTop = 9999;
+  setTimeout(() => {
+    typingDiv.remove();
+    addMsg(getResponse(msg), 'bot');
+  }, 900 + Math.random() * 600);
+}
+
+function quickAsk(q) {
+  document.getElementById('chatInput').value = q;
+  sendChat();
+}
+</script>
+</body>
+</html>
