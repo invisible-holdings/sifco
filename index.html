@@ -4,31 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIFCO Foundation — Safer Initiative For Communities</title>
+<link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  /* BRIGHT HEADER/FOOTER PALETTE */
-  --nav-bg:#f5f0e8;
-  --nav-border:#d4a84b;
-  --footer-bg:#f5f0e8;
-  --footer-border:#d4a84b;
+  /* ===== UN COLOUR PALETTE =====
+     UN Blue is the official light blue used on the UN flag and emblem (#5B92E5 / #009EDB).
+     We pair it with a deep navy for contrast and a soft icy cream for warmth.
+  */
+  --nav-bg:#ffffff;
+  --nav-border:#009edb;
+  --footer-bg:#eaf4fb;
+  --footer-border:#009edb;
 
-  --navy:#0b1f3a;
-  --navy2:#142d52;
-  --navy3:#1d3f6e;
-  --gold:#b8922a;
-  --gold2:#d4a84b;
-  --gold3:#f0c96e;
-  --cream:#f8f5ef;
-  --cream2:#ede8df;
+  --navy:#0b2545;          /* deep UN navy */
+  --navy2:#13315c;
+  --navy3:#1d4e89;
+  --gold:#009edb;          /* UN Blue (primary accent) */
+  --gold2:#5b92e5;         /* UN flag blue (lighter) */
+  --gold3:#a4d4f0;         /* pale UN blue */
+  --cream:#f0f7fb;         /* icy white-blue */
+  --cream2:#dce9f2;        /* soft pale blue */
   --white:#ffffff;
-  --text:#1a2332;
-  --text2:#3a4a5c;
+  --text:#0b2545;
+  --text2:#33476b;
   --muted:#6b7a8d;
-  --light-border:rgba(184,146,42,0.25);
-  --divider:rgba(11,31,58,0.1);
+  --light-border:rgba(0,158,219,0.25);
+  --divider:rgba(11,37,69,0.1);
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
@@ -40,13 +44,13 @@ h1,h2,h3,.serif{font-family:'EB Garamond',Georgia,serif}
 .page{display:none}
 .page.active{display:block}
 
-/* ======= NAV — BRIGHT CREAM WITH DARK TEXT ======= */
+/* ======= NAV ======= */
 nav{
   position:fixed;top:0;width:100%;z-index:1000;
   background:var(--nav-bg);
   backdrop-filter:blur(20px);
   border-bottom:2px solid var(--nav-border);
-  box-shadow:0 2px 20px rgba(184,146,42,0.15);
+  box-shadow:0 2px 20px rgba(0,158,219,0.15);
   transition:all 0.4s
 }
 .nav-inner{
@@ -57,10 +61,10 @@ nav{
 .logo-img{
   width:58px;height:58px;border-radius:6px;
   background:var(--white);
-  border:2px solid var(--gold2);
+  border:2px solid var(--gold);
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;flex-shrink:0;
-  box-shadow:0 2px 8px rgba(184,146,42,0.2)
+  box-shadow:0 2px 8px rgba(0,158,219,0.2)
 }
 .logo-img img{width:100%;height:100%;object-fit:contain;display:block}
 .nav-brand-title{
@@ -77,14 +81,14 @@ nav{
   font-weight:500;padding:0.5rem 0.85rem;border-radius:3px;
   transition:all 0.2s;letter-spacing:0.03em;white-space:nowrap
 }
-.nav-links a:hover,.nav-links a.active{color:var(--navy);background:rgba(184,146,42,0.12)}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);background:rgba(0,158,219,0.12)}
 .nav-donate{
-  background:var(--navy)!important;color:var(--white)!important;
+  background:var(--gold)!important;color:var(--white)!important;
   padding:0.55rem 1.4rem!important;border-radius:3px!important;
   font-weight:600!important;letter-spacing:0.04em!important;
   transition:background 0.2s!important
 }
-.nav-donate:hover{background:var(--navy2)!important}
+.nav-donate:hover{background:var(--navy)!important}
 
 /* ======= HERO ======= */
 .hero{
@@ -94,7 +98,7 @@ nav{
 }
 .hero-bg-img{
   position:absolute;inset:0;
-  background:linear-gradient(105deg,#0b1f3a 0%,#0b1f3a 40%,rgba(11,31,58,0.75) 100%);
+  background:linear-gradient(105deg,#0b2545 0%,#13315c 40%,rgba(29,78,137,0.85) 100%);
   z-index:0
 }
 .hero-grain{
@@ -114,7 +118,7 @@ nav{
 }
 .hero-kicker{display:flex;align-items:center;gap:0.8rem;margin-bottom:2rem}
 .hero-kicker-line{width:40px;height:1px;background:var(--gold)}
-.hero-kicker-text{font-size:0.72rem;color:var(--gold2);letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
+.hero-kicker-text{font-size:0.72rem;color:var(--gold3);letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
 .hero-h1{
   font-family:'EB Garamond',serif;
   font-size:clamp(2.6rem,4.5vw,4.2rem);
@@ -123,12 +127,12 @@ nav{
 }
 .hero-h1 em{font-style:italic;color:var(--gold3)}
 .hero-lead{
-  color:rgba(255,255,255,0.72);font-size:1rem;
+  color:rgba(255,255,255,0.78);font-size:1rem;
   line-height:1.85;margin-bottom:2.5rem;font-weight:300;max-width:520px
 }
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
 .btn-gold{
-  background:var(--gold);color:var(--navy);
+  background:var(--gold);color:var(--white);
   padding:0.85rem 2rem;border:none;border-radius:3px;
   font-size:0.85rem;font-weight:600;letter-spacing:0.06em;
   text-transform:uppercase;cursor:pointer;text-decoration:none;
@@ -148,12 +152,12 @@ nav{
 .hero-img-frame{
   position:relative;border-radius:4px;overflow:hidden;
   background:linear-gradient(135deg,var(--navy2),var(--navy3));
-  aspect-ratio:4/5;border:1px solid rgba(184,146,42,0.3)
+  aspect-ratio:4/5;border:1px solid rgba(0,158,219,0.4)
 }
 .hero-img-frame img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-img-badge{
   position:absolute;bottom:1.5rem;left:-2rem;
-  background:var(--gold);color:var(--navy);
+  background:var(--gold);color:var(--white);
   padding:1rem 1.5rem;border-radius:3px;
   box-shadow:0 20px 60px rgba(0,0,0,0.4)
 }
@@ -176,21 +180,21 @@ nav{
 .section-lead{color:var(--text2);font-size:0.97rem;line-height:1.85;max-width:600px;font-weight:300}
 
 /* ======= HOME — ONE-PAGE SCROLL SECTIONS ======= */
-#page-home{display:block!important} /* always block; scroll-based */
+#page-home{display:block!important}
 #page-home > section, #page-home > div.donor-strip{display:block!important}
 
 /* ======= MISSION ======= */
 .mission{background:var(--white)}
 .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:4rem}
 .mission-img{position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--cream2);border:1px solid var(--divider)}
-.mission-img img{width:100%;height:100%;object-fit:cover;opacity:0.9}
+.mission-img img{width:100%;height:100%;object-fit:cover;opacity:0.95}
 .mission-img-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:0.5rem;background:linear-gradient(135deg,var(--cream),var(--cream2))}
 .mission-accent-box{
   position:absolute;bottom:-1.5rem;right:-1.5rem;
   background:var(--navy);color:var(--white);
   padding:1.5rem 2rem;border-radius:4px
 }
-.mission-accent-box .accent-num{font-family:'EB Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--gold2);line-height:1;display:block}
+.mission-accent-box .accent-num{font-family:'EB Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--gold3);line-height:1;display:block}
 .mission-accent-box .accent-text{font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:0.2rem}
 .mission-quote{border-left:3px solid var(--gold);padding-left:1.5rem;margin:2rem 0;font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);font-style:italic;line-height:1.7}
 .mission-body{color:var(--text2);font-size:0.95rem;line-height:1.85;font-weight:300;margin-bottom:1rem}
@@ -200,19 +204,19 @@ nav{
 .stats-bar-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
 .stat-item{text-align:center;padding:2rem;border-right:1px solid rgba(255,255,255,0.08)}
 .stat-item:last-child{border-right:none}
-.stat-num{font-family:'EB Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold2);line-height:1;display:block;margin-bottom:0.4rem}
-.stat-label{font-size:0.78rem;color:rgba(255,255,255,0.55);letter-spacing:0.08em;text-transform:uppercase}
-.stat-detail{font-size:0.82rem;color:rgba(255,255,255,0.35);margin-top:0.3rem;font-style:italic}
+.stat-num{font-family:'EB Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold3);line-height:1;display:block;margin-bottom:0.4rem}
+.stat-label{font-size:0.78rem;color:rgba(255,255,255,0.6);letter-spacing:0.08em;text-transform:uppercase}
+.stat-detail{font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:0.3rem;font-style:italic}
 
 /* ======= OBJECTIVES ======= */
 .objectives{background:var(--cream);position:relative;overflow:hidden}
 .obj-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem}
 .obj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;position:relative;z-index:1}
-.obj-card{background:var(--white);padding:2.5rem;transition:all 0.3s;cursor:default;border:1px solid rgba(11,31,58,0.07)}
+.obj-card{background:var(--white);padding:2.5rem;transition:all 0.3s;cursor:default;border:1px solid rgba(11,37,69,0.07)}
 .obj-card:hover{background:var(--navy)}
 .obj-card:hover .obj-title{color:var(--white)}
 .obj-card:hover .obj-body{color:rgba(255,255,255,0.6)}
-.obj-card:hover .obj-num{color:var(--gold2)}
+.obj-card:hover .obj-num{color:var(--gold3)}
 .obj-num{font-family:'Bebas Neue',monospace;font-size:0.85rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:1.5rem;display:block}
 .obj-icon-sq{width:44px;height:44px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.2rem;border-radius:3px;transition:background 0.3s}
 .obj-card:hover .obj-icon-sq{background:rgba(255,255,255,0.08)}
@@ -231,16 +235,16 @@ nav{
 
 /* ======= ABOUT PAGE ======= */
 .about-hero{min-height:60vh;background:var(--navy);display:flex;align-items:flex-end;padding:80px 2.5rem 0;position:relative;overflow:hidden}
-.about-hero-bg{position:absolute;inset:0;background:linear-gradient(to top,var(--navy) 25%,rgba(11,31,58,0.6) 100%)}
+.about-hero-bg{position:absolute;inset:0;background:linear-gradient(to top,var(--navy) 25%,rgba(11,37,69,0.6) 100%)}
 .about-hero-content{max-width:1280px;margin:0 auto;padding:5rem 0 4rem;position:relative;z-index:1;width:100%}
 .about-hero-h1{font-family:'EB Garamond',serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--white);font-weight:700;max-width:700px;line-height:1.1;margin-bottom:1.5rem}
-.about-hero-lead{color:rgba(255,255,255,0.65);font-size:1rem;max-width:560px;line-height:1.85;font-weight:300}
+.about-hero-lead{color:rgba(255,255,255,0.7);font-size:1rem;max-width:560px;line-height:1.85;font-weight:300}
 .about-section{padding:6rem 2.5rem}
 .about-section-inner{max-width:1280px;margin:0 auto}
 .about-two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .about-body{color:var(--text2);font-size:0.95rem;line-height:1.9;font-weight:300;margin-bottom:1.2rem}
 .about-story-img{aspect-ratio:3/4;border-radius:4px;overflow:hidden;background:var(--cream2);position:relative;top:2rem;border:1px solid var(--divider)}
-.about-story-img img{width:100%;height:100%;object-fit:cover;opacity:0.92}
+.about-story-img img{width:100%;height:100%;object-fit:cover;opacity:0.95}
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
 .team-card{text-align:center}
 .team-photo{width:120px;height:120px;border-radius:50%;background:var(--cream2);margin:0 auto 1rem;overflow:hidden;border:3px solid var(--gold)}
@@ -254,7 +258,7 @@ nav{
 .donate-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;max-width:1280px;margin:0 auto;padding:5rem 2.5rem}
 .donate-impact-item{display:flex;align-items:start;gap:1.2rem;padding:1.2rem;border:1px solid var(--divider);border-radius:4px;transition:border-color 0.2s;margin-bottom:1rem}
 .donate-impact-item:hover{border-color:var(--gold)}
-.donate-impact-icon{width:40px;height:40px;background:var(--navy);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.donate-impact-icon{width:40px;height:40px;background:var(--navy);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;color:var(--white)}
 .donate-impact-text h4{font-size:0.9rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem}
 .donate-impact-text p{font-size:0.82rem;color:var(--muted);line-height:1.6}
 .donate-form-panel{background:var(--white);border:1px solid var(--divider);border-radius:6px;padding:2.5rem;position:sticky;top:100px}
@@ -262,7 +266,7 @@ nav{
 .donate-form-sub{font-size:0.83rem;color:var(--muted);margin-bottom:2rem}
 .amount-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-bottom:1rem}
 .amount-btn{border:1px solid var(--divider);background:none;padding:0.75rem;border-radius:3px;font-size:0.9rem;font-weight:600;color:var(--text2);cursor:pointer;transition:all 0.2s;font-family:'EB Garamond',serif}
-.amount-btn:hover,.amount-btn.selected{border-color:var(--gold);background:rgba(184,146,42,0.08);color:var(--gold)}
+.amount-btn:hover,.amount-btn.selected{border-color:var(--gold);background:rgba(0,158,219,0.08);color:var(--gold)}
 .form-group{margin-bottom:1.2rem}
 .form-label{font-size:0.75rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:0.5rem}
 .form-input{width:100%;padding:0.8rem 1rem;border:1px solid var(--divider);border-radius:3px;font-size:0.9rem;color:var(--text);background:var(--white);transition:border-color 0.2s;font-family:'Inter',sans-serif}
@@ -271,22 +275,74 @@ nav{
 .form-select{width:100%;padding:0.8rem 1rem;border:1px solid var(--divider);border-radius:3px;font-size:0.9rem;color:var(--text);background:var(--white);cursor:pointer;font-family:'Inter',sans-serif}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .btn-full{width:100%;padding:1rem;border:none;border-radius:3px;cursor:pointer;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;transition:all 0.2s}
-.btn-donate{background:var(--navy);color:var(--white)}
-.btn-donate:hover{background:var(--navy2)}
+.btn-donate{background:var(--gold);color:var(--white)}
+.btn-donate:hover{background:var(--navy)}
 .secure-note{text-align:center;margin-top:1rem;font-size:0.75rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:0.4rem}
 .other-ways{padding:4rem 2.5rem;background:var(--cream);border-top:1px solid var(--divider)}
 .other-ways-inner{max-width:1280px;margin:0 auto}
 .bank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
 .bank-card{background:var(--white);border:1px solid var(--divider);padding:2rem;border-radius:4px}
 .bank-card h4{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--navy);margin-bottom:1rem}
-.bank-detail{font-size:0.83rem;color:var(--muted);margin-bottom:0.4rem;line-height:1.5}
+.bank-detail{font-size:0.83rem;color:var(--muted);margin-bottom:0.4rem;line-height:1.55}
 .bank-detail strong{color:var(--text);font-weight:600}
+
+/* ======= ONLINE GIVING PLATFORMS ======= */
+.platforms-section{padding:5rem 2.5rem;background:var(--white);border-top:1px solid var(--divider)}
+.platforms-inner{max-width:1280px;margin:0 auto}
+.platforms-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}
+.platform-card{
+  background:var(--white);border:1px solid var(--divider);border-radius:6px;
+  padding:1.75rem 1.5rem;text-align:left;transition:all 0.25s;
+  display:flex;flex-direction:column;gap:0.6rem;text-decoration:none;color:inherit;
+  position:relative;overflow:hidden
+}
+.platform-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,158,219,0.12)}
+.platform-card .pf-icon{
+  width:44px;height:44px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;font-weight:700;color:var(--white);
+  font-family:'EB Garamond',serif
+}
+.platform-card .pf-name{font-family:'EB Garamond',serif;font-weight:700;color:var(--navy);font-size:1.05rem;margin-top:0.2rem}
+.platform-card .pf-tag{font-size:0.7rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+.platform-card .pf-desc{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.platform-card .pf-cta{font-size:0.78rem;font-weight:600;color:var(--gold);margin-top:auto;padding-top:0.5rem}
+
+/* ======= CRYPTO BLOCK ======= */
+.crypto-block{
+  margin-top:3rem;background:var(--navy);color:var(--white);
+  border-radius:8px;padding:2.5rem;display:grid;
+  grid-template-columns:1fr 1.4fr;gap:3rem;align-items:start
+}
+.crypto-intro h3{font-family:'EB Garamond',serif;font-size:1.6rem;margin-bottom:0.8rem}
+.crypto-intro p{color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.75;font-weight:300}
+.crypto-list{display:flex;flex-direction:column;gap:0.8rem}
+.crypto-row{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(164,212,240,0.18);
+  border-radius:6px;padding:1rem 1.2rem;
+  display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center
+}
+.crypto-symbol{
+  width:38px;height:38px;border-radius:50%;background:var(--gold);
+  color:var(--white);font-weight:700;font-family:'EB Garamond',serif;
+  display:flex;align-items:center;justify-content:center;font-size:0.95rem
+}
+.crypto-info .c-name{font-size:0.88rem;font-weight:600;color:var(--white)}
+.crypto-info .c-addr{font-family:'Courier New',monospace;font-size:0.75rem;color:rgba(255,255,255,0.55);word-break:break-all;margin-top:0.15rem}
+.crypto-copy{
+  background:transparent;border:1px solid rgba(164,212,240,0.4);
+  color:var(--gold3);padding:0.45rem 0.9rem;border-radius:3px;
+  font-size:0.7rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif
+}
+.crypto-copy:hover{background:var(--gold);border-color:var(--gold);color:var(--white)}
+.crypto-note{margin-top:1.2rem;font-size:0.78rem;color:rgba(255,255,255,0.45);font-style:italic;line-height:1.6}
 
 /* ======= SPEAKER PAGE ======= */
 .speaker-hero{padding:160px 2.5rem 80px;background:var(--navy);position:relative;overflow:hidden}
-.speaker-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,31,58,0.9) 0%,rgba(20,45,82,0.8) 100%)}
+.speaker-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,37,69,0.9) 0%,rgba(19,49,92,0.8) 100%)}
 .speaker-hero-h1{font-family:'EB Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--white);font-weight:700;max-width:680px;line-height:1.15;margin-bottom:1rem}
-.speaker-hero-lead{color:rgba(255,255,255,0.65);font-size:1rem;max-width:520px;line-height:1.85}
+.speaker-hero-lead{color:rgba(255,255,255,0.7);font-size:1rem;max-width:520px;line-height:1.85}
 .speaker-content{max-width:1280px;margin:0 auto;padding:5rem 2.5rem}
 .speaker-two-col{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
 .speaker-benefit{display:flex;gap:1rem;align-items:start;padding:1.2rem;border-left:3px solid var(--gold);margin-bottom:1rem}
@@ -294,7 +350,7 @@ nav{
 .speaker-benefit h4{font-size:0.92rem;font-weight:600;color:var(--navy);margin-bottom:0.3rem}
 .speaker-benefit p{font-size:0.82rem;color:var(--muted);line-height:1.65}
 .speaker-img{aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--cream2);margin-bottom:2rem;border:1px solid var(--divider)}
-.speaker-img img{width:100%;height:100%;object-fit:cover;opacity:0.9}
+.speaker-img img{width:100%;height:100%;object-fit:cover;opacity:0.95}
 .speaker-form{background:var(--white);border:1px solid var(--divider);border-radius:6px;padding:2.5rem}
 .speaker-form-title{font-family:'EB Garamond',serif;font-size:1.4rem;color:var(--navy);font-weight:700;margin-bottom:0.5rem}
 .speaker-form-sub{font-size:0.83rem;color:var(--muted);margin-bottom:2rem}
@@ -305,32 +361,32 @@ nav{
 
 /* ======= TRAINING PAGE ======= */
 .training-hero{padding:160px 2.5rem 80px;background:var(--navy);position:relative;overflow:hidden}
-.training-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,31,58,0.97) 0%,rgba(20,45,82,0.85) 100%)}
-.training-badge{display:inline-flex;align-items:center;gap:0.6rem;background:rgba(184,146,42,0.15);border:1px solid rgba(184,146,42,0.3);border-radius:3px;padding:0.5rem 1rem;font-size:0.75rem;color:var(--gold2);letter-spacing:0.08em;text-transform:uppercase;font-weight:600;margin-bottom:2rem}
+.training-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,37,69,0.97) 0%,rgba(19,49,92,0.85) 100%)}
+.training-badge{display:inline-flex;align-items:center;gap:0.6rem;background:rgba(0,158,219,0.12);border:1px solid rgba(0,158,219,0.3);border-radius:3px;padding:0.5rem 1rem;font-size:0.75rem;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;font-weight:600;margin-bottom:2rem}
 .training-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#4ade80;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 .training-content{max-width:1280px;margin:0 auto;padding:5rem 2.5rem}
 .upcoming-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
 .event-card{border:1px solid var(--divider);border-radius:4px;overflow:hidden;transition:all 0.3s}
-.event-card:hover{box-shadow:0 8px 32px rgba(11,31,58,0.1);transform:translateY(-2px)}
+.event-card:hover{box-shadow:0 8px 32px rgba(11,37,69,0.1);transform:translateY(-2px)}
 .event-card-top{background:var(--navy);padding:1.5rem;position:relative}
-.event-date{font-family:'Bebas Neue',monospace;font-size:2.5rem;color:var(--gold2);line-height:1;display:block}
-.event-month{font-size:0.72rem;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase}
-.event-tag{position:absolute;top:1rem;right:1rem;background:rgba(184,146,42,0.2);border:1px solid rgba(184,146,42,0.3);padding:0.25rem 0.7rem;border-radius:2px;font-size:0.68rem;color:var(--gold2);letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+.event-date{font-family:'Bebas Neue',monospace;font-size:2.5rem;color:var(--gold3);line-height:1;display:block}
+.event-month{font-size:0.72rem;color:rgba(255,255,255,0.55);letter-spacing:0.1em;text-transform:uppercase}
+.event-tag{position:absolute;top:1rem;right:1rem;background:rgba(0,158,219,0.2);border:1px solid rgba(0,158,219,0.4);padding:0.25rem 0.7rem;border-radius:2px;font-size:0.68rem;color:var(--gold3);letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
 .event-card-body{padding:1.5rem}
 .event-title{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--navy);font-weight:700;margin-bottom:0.5rem}
 .event-detail{font-size:0.8rem;color:var(--muted);margin-bottom:0.3rem;display:flex;align-items:center;gap:0.4rem}
 .event-card-btn{display:block;text-align:center;margin:1.5rem;border:1px solid var(--gold);color:var(--gold);padding:0.65rem;border-radius:3px;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;text-decoration:none}
-.event-card-btn:hover{background:var(--gold);color:var(--navy)}
+.event-card-btn:hover{background:var(--gold);color:var(--white)}
 .training-room{margin-top:4rem;background:var(--navy);border-radius:6px;overflow:hidden}
 .training-room-header{padding:2rem;border-bottom:1px solid rgba(255,255,255,0.08)}
 .training-room-title{font-family:'EB Garamond',serif;font-size:1.5rem;color:var(--white);font-weight:700}
-.training-room-sub{font-size:0.83rem;color:rgba(255,255,255,0.5);margin-top:0.3rem}
+.training-room-sub{font-size:0.83rem;color:rgba(255,255,255,0.55);margin-top:0.3rem}
 .meeting-embed-placeholder{background:rgba(0,0,0,0.3);min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:3rem;text-align:center}
 .meeting-embed-placeholder .meeting-icon{font-size:3rem;margin-bottom:1rem}
 .meeting-embed-placeholder h3{font-family:'EB Garamond',serif;font-size:1.4rem;color:var(--white)}
-.meeting-embed-placeholder p{font-size:0.85rem;color:rgba(255,255,255,0.4);max-width:400px;line-height:1.7}
-.embed-code-note{background:rgba(184,146,42,0.1);border:1px solid rgba(184,146,42,0.2);border-radius:3px;padding:1rem 1.5rem;margin-top:1rem;font-family:'Courier New',monospace;font-size:0.78rem;color:var(--gold2);max-width:400px}
+.meeting-embed-placeholder p{font-size:0.85rem;color:rgba(255,255,255,0.5);max-width:400px;line-height:1.7}
+.embed-code-note{background:rgba(0,158,219,0.1);border:1px solid rgba(0,158,219,0.25);border-radius:3px;padding:1rem 1.5rem;margin-top:1rem;font-family:'Courier New',monospace;font-size:0.78rem;color:var(--gold3);max-width:400px}
 
 /* ======= CONTACT PAGE ======= */
 .contact-hero{padding:160px 2.5rem 80px;background:var(--cream);border-bottom:1px solid var(--divider)}
@@ -346,13 +402,13 @@ nav{
 .contact-form-sub{font-size:0.83rem;color:var(--muted);margin-bottom:2rem}
 textarea.form-input{resize:vertical;min-height:120px;font-family:'Inter',sans-serif}
 
-/* ======= FOOTER — BRIGHT CREAM WITH DARK TEXT ======= */
+/* ======= FOOTER ======= */
 footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);padding:5rem 2.5rem 2rem}
 .footer-inner{max-width:1280px;margin:0 auto}
 .footer-gold-rule{width:100%;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin-bottom:3rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:1.2rem}
-.footer-logo-img{width:52px;height:52px;border-radius:5px;background:var(--white);border:2px solid var(--gold2);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(184,146,42,0.15)}
+.footer-logo-img{width:52px;height:52px;border-radius:5px;background:var(--white);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 8px rgba(0,158,219,0.15)}
 .footer-logo-img img{width:100%;height:100%;object-fit:contain}
 .footer-brand-name{font-family:'EB Garamond',serif;font-size:1.15rem;color:var(--navy);font-weight:700}
 .footer-brand-sub{font-size:0.62rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-top:1px}
@@ -374,24 +430,24 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 .float-wa{width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);cursor:pointer;transition:all 0.2s;text-decoration:none;border:none;position:relative}
 .float-wa:hover{transform:scale(1.08)}
 .float-wa svg{width:28px;height:28px;fill:white}
-.float-ai{width:56px;height:56px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 20px rgba(11,31,58,0.4);font-size:1.4rem;position:relative}
-.float-ai:hover{transform:scale(1.08);background:var(--navy2)}
+.float-ai{width:56px;height:56px;border-radius:50%;background:var(--gold);border:2px solid var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 20px rgba(0,158,219,0.5);font-size:1.4rem;position:relative}
+.float-ai:hover{transform:scale(1.08);background:var(--navy)}
 .float-label{position:absolute;right:66px;background:var(--navy);color:var(--white);padding:0.35rem 0.8rem;border-radius:3px;font-size:0.72rem;white-space:nowrap;font-weight:500;opacity:0;transition:opacity 0.2s;pointer-events:none;box-shadow:0 4px 12px rgba(0,0,0,0.3);top:50%;transform:translateY(-50%)}
 .float-wa:hover .float-label,.float-ai:hover .float-label{opacity:1}
 
 /* ======= AI CHAT WIDGET ======= */
-.ai-chat-widget{position:fixed;bottom:9rem;right:2rem;z-index:950;width:360px;background:var(--white);border:1px solid var(--divider);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(11,31,58,0.18);display:none;flex-direction:column;max-height:500px}
+.ai-chat-widget{position:fixed;bottom:9rem;right:2rem;z-index:950;width:360px;background:var(--white);border:1px solid var(--divider);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(11,37,69,0.18);display:none;flex-direction:column;max-height:500px}
 .ai-chat-widget.open{display:flex}
 .chat-header{background:var(--navy);padding:1rem 1.2rem;display:flex;align-items:center;gap:0.8rem}
-.chat-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.chat-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:var(--white)}
 .chat-header-name{font-size:0.9rem;font-weight:600;color:var(--white)}
-.chat-header-status{font-size:0.72rem;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:0.3rem}
+.chat-header-status{font-size:0.72rem;color:rgba(255,255,255,0.55);display:flex;align-items:center;gap:0.3rem}
 .chat-header-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80}
-.chat-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,0.5);cursor:pointer;font-size:1.2rem;padding:0.2rem}
+.chat-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,0.55);cursor:pointer;font-size:1.2rem;padding:0.2rem}
 .chat-messages{flex:1;overflow-y:auto;padding:1.2rem;display:flex;flex-direction:column;gap:0.8rem;background:var(--cream)}
 .chat-msg{max-width:80%;padding:0.7rem 1rem;border-radius:12px;font-size:0.83rem;line-height:1.65}
 .chat-msg.bot{background:var(--white);border:1px solid var(--divider);color:var(--text);border-bottom-left-radius:4px;align-self:flex-start}
-.chat-msg.user{background:var(--navy);color:var(--white);border-bottom-right-radius:4px;align-self:flex-end}
+.chat-msg.user{background:var(--gold);color:var(--white);border-bottom-right-radius:4px;align-self:flex-end}
 .chat-msg.typing{color:var(--muted);font-style:italic}
 .chat-quick{padding:0.8rem 1.2rem;display:flex;gap:0.5rem;flex-wrap:wrap;background:var(--white);border-top:1px solid var(--divider)}
 .quick-btn{font-size:0.72rem;padding:0.35rem 0.75rem;border:1px solid var(--light-border);border-radius:20px;background:none;cursor:pointer;color:var(--text2);transition:all 0.2s;white-space:nowrap}
@@ -400,8 +456,18 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 .chat-input{flex:1;border:1px solid var(--divider);border-radius:20px;padding:0.5rem 1rem;font-size:0.83rem;color:var(--text);background:var(--cream);font-family:'Inter',sans-serif}
 .chat-input:focus{outline:none;border-color:var(--gold)}
 .chat-send{width:36px;height:36px;background:var(--gold);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;flex-shrink:0}
-.chat-send:hover{background:var(--gold2)}
-.chat-send svg{width:16px;height:16px;fill:var(--navy)}
+.chat-send:hover{background:var(--navy)}
+.chat-send svg{width:16px;height:16px;fill:var(--white)}
+
+/* ======= COPY TOAST ======= */
+.copy-toast{
+  position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--navy);color:var(--white);padding:0.8rem 1.5rem;
+  border-radius:4px;font-size:0.85rem;z-index:9999;
+  opacity:0;transition:all 0.3s;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2)
+}
+.copy-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ======= RESPONSIVE ======= */
 @media(max-width:1024px){
@@ -414,6 +480,8 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
   .footer-grid{grid-template-columns:1fr 1fr}
   .bank-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:1fr 1fr}
+  .platforms-grid{grid-template-columns:1fr 1fr}
+  .crypto-block{grid-template-columns:1fr;gap:2rem;padding:2rem}
 }
 @media(max-width:700px){
   .nav-links{display:none}
@@ -424,13 +492,16 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
   .amount-grid{grid-template-columns:1fr 1fr}
   .topics-grid{grid-template-columns:1fr}
   .mobile-menu-btn{display:flex!important}
+  .platforms-grid{grid-template-columns:1fr}
+  .crypto-row{grid-template-columns:1fr;gap:0.5rem;text-align:left}
+  .crypto-copy{justify-self:start}
 }
 .mobile-menu-btn{display:none!important;background:none;border:1px solid var(--divider);border-radius:3px;padding:0.4rem 0.7rem;color:var(--navy);cursor:pointer;font-size:1rem}
 .mobile-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
 .mobile-nav.open{display:flex}
 .mobile-nav a{font-family:'EB Garamond',serif;font-size:2rem;color:var(--white);text-decoration:none;font-weight:700;transition:color 0.2s}
-.mobile-nav a:hover{color:var(--gold)}
-.mobile-nav-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer}
+.mobile-nav a:hover{color:var(--gold3)}
+.mobile-nav-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,0.55);font-size:1.5rem;cursor:pointer}
 
 /* ======= ANIMATIONS ======= */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
@@ -444,12 +515,11 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 .delay-5{transition-delay:0.5s}.delay-6{transition-delay:0.6s}
 
 /* Img placeholders */
-.img-ph{background:linear-gradient(135deg,var(--cream) 0%,var(--cream2) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:0.4rem;border:1.5px dashed rgba(184,146,42,0.3)}
+.img-ph{background:linear-gradient(135deg,var(--cream) 0%,var(--cream2) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:0.4rem;border:1.5px dashed rgba(0,158,219,0.3)}
 .img-ph .ph-icon{font-size:2rem;opacity:0.5}
 .img-ph .ph-fn{font-family:'Courier New',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:0.08em;font-weight:700}
 .img-ph .ph-desc{font-size:0.7rem;color:var(--muted);line-height:1.5;max-width:220px}
 
-/* ======= HOME PAGE: all sections always visible for scrolling ======= */
 #page-home{display:block}
 </style>
 </head>
@@ -461,7 +531,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
     <a class="nav-logo" href="#home" onclick="scrollToSection('home-hero')">
       <div class="logo-img">
         <img src="logo.png" alt="SIFCO Foundation Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div style="display:none;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:var(--gold2);color:var(--navy);font-weight:800;font-size:0.7rem;letter-spacing:0.05em;text-align:center;font-family:'EB Garamond',serif">SIFCO</div>
+        <div style="display:none;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;background:var(--gold);color:var(--white);font-weight:800;font-size:0.7rem;letter-spacing:0.05em;text-align:center;font-family:'EB Garamond',serif">SIFCO</div>
       </div>
       <div>
         <div class="nav-brand-title">SIFCO Foundation</div>
@@ -490,12 +560,8 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
   <a href="#training-section" onclick="scrollToSection('training-section');document.getElementById('mobileNav').classList.remove('open')">Training Room</a>
   <a href="#speaker-section" onclick="scrollToSection('speaker-section');document.getElementById('mobileNav').classList.remove('open')">Become a Speaker</a>
   <a href="#contact-section" onclick="scrollToSection('contact-section');document.getElementById('mobileNav').classList.remove('open')">Contact</a>
-  <a href="#donate-section" onclick="scrollToSection('donate-section');document.getElementById('mobileNav').classList.remove('open')" style="color:var(--gold)">Donate</a>
+  <a href="#donate-section" onclick="scrollToSection('donate-section');document.getElementById('mobileNav').classList.remove('open')" style="color:var(--gold3)">Donate</a>
 </div>
-
-<!-- ============================================================ -->
-<!--  ONE-PAGE SCROLLING LAYOUT — ALL SECTIONS ON SAME PAGE      -->
-<!-- ============================================================ -->
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="home-hero">
@@ -664,9 +730,9 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
         <p class="obj-body">Connecting upskilled youth to digital marketplaces and remote work opportunities — transforming newly acquired skills into sustainable livelihoods.</p>
       </div>
       <div class="obj-card reveal delay-3" style="background:var(--navy);border-color:var(--navy)">
-        <span class="obj-num" style="color:var(--gold2)">GET INVOLVED</span>
+        <span class="obj-num" style="color:var(--gold3)">GET INVOLVED</span>
         <h3 class="obj-title" style="color:var(--white);font-size:1.3rem;margin-bottom:1rem;margin-top:1rem">Partner with us to amplify impact</h3>
-        <p class="obj-body" style="color:rgba(255,255,255,0.55);margin-bottom:2rem">Whether you are a funder, implementer, or community leader, we welcome collaboration at every level.</p>
+        <p class="obj-body" style="color:rgba(255,255,255,0.6);margin-bottom:2rem">Whether you are a funder, implementer, or community leader, we welcome collaboration at every level.</p>
         <a href="#contact-section" onclick="scrollToSection('contact-section')" class="btn-gold">Start a Conversation</a>
       </div>
     </div>
@@ -712,32 +778,32 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
       <div>
         <div class="section-kicker reveal" style="margin-bottom:1.5rem">
           <div class="section-kicker-line"></div>
-          <span class="section-kicker-text" style="color:var(--gold2)">About the Foundation</span>
+          <span class="section-kicker-text" style="color:var(--gold3)">About the Foundation</span>
         </div>
         <h2 class="section-h2 reveal delay-1" style="color:var(--white)">From <em>Lesotho</em><br>to the World</h2>
-        <p class="mission-body reveal delay-2" style="color:rgba(255,255,255,0.65)">Founded in Maseru, Lesotho in 2026, SIFCO Foundation emerged from direct observation of the harms that unregulated digital access was causing in vulnerable communities — from children exposed to exploitation online, to youth unable to access the economic opportunities the internet offered.</p>
-        <p class="mission-body reveal delay-3" style="color:rgba(255,255,255,0.65)">Our founders recognized that the solution required more than awareness campaigns. It required a sustained, multi-sectoral approach combining education, policy reform, community mobilization, and skills development — backed by data and delivered with cultural sensitivity.</p>
-        <p class="mission-body reveal delay-4" style="color:rgba(255,255,255,0.65)">Today, SIFCO operates across six African countries, with partnerships spanning government ministries, the private sector, and civil society. We measure our success not by activities, but by outcomes: safer children, employed youth, and more resilient communities.</p>
+        <p class="mission-body reveal delay-2" style="color:rgba(255,255,255,0.7)">Founded in Maseru, Lesotho in 2026, SIFCO Foundation emerged from direct observation of the harms that unregulated digital access was causing in vulnerable communities — from children exposed to exploitation online, to youth unable to access the economic opportunities the internet offered.</p>
+        <p class="mission-body reveal delay-3" style="color:rgba(255,255,255,0.7)">Our founders recognized that the solution required more than awareness campaigns. It required a sustained, multi-sectoral approach combining education, policy reform, community mobilization, and skills development — backed by data and delivered with cultural sensitivity.</p>
+        <p class="mission-body reveal delay-4" style="color:rgba(255,255,255,0.7)">Today, SIFCO operates across six African countries, with partnerships spanning government ministries, the private sector, and civil society. We measure our success not by activities, but by outcomes: safer children, employed youth, and more resilient communities.</p>
         <div class="mission-quote reveal delay-5" style="margin-top:2rem;color:var(--gold3)">
           "We believe that every child, regardless of geography or circumstance, deserves to be safe, connected, and equipped for the future."
         </div>
       </div>
       <div>
-        <div class="about-story-img reveal-right delay-2" style="position:static;border-color:rgba(184,146,42,0.2)">
+        <div class="about-story-img reveal-right delay-2" style="position:static;border-color:rgba(0,158,219,0.25)">
           <div class="img-ph" style="height:100%;min-height:440px;border-radius:4px">
-            <div class="ph-icon" style="color:rgba(184,146,42,0.6)">📷</div>
+            <div class="ph-icon" style="color:rgba(0,158,219,0.6)">📷</div>
             <div class="ph-fn">about-story.jpg</div>
-            <div class="ph-desc" style="color:rgba(255,255,255,0.4)">Leadership team, candid professional setting, Lesotho</div>
+            <div class="ph-desc" style="color:rgba(255,255,255,0.45)">Leadership team, candid professional setting, Lesotho</div>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem" class="reveal delay-3">
-          <div style="padding:1.5rem;border:1px solid rgba(184,146,42,0.2);border-radius:4px;text-align:center">
-            <div style="font-family:'EB Garamond',serif;font-size:2rem;color:var(--gold);font-weight:700">2026</div>
-            <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem">Year Founded</div>
+          <div style="padding:1.5rem;border:1px solid rgba(0,158,219,0.25);border-radius:4px;text-align:center">
+            <div style="font-family:'EB Garamond',serif;font-size:2rem;color:var(--gold3);font-weight:700">2026</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem">Year Founded</div>
           </div>
-          <div style="padding:1.5rem;border:1px solid rgba(184,146,42,0.2);border-radius:4px;text-align:center">
-            <div style="font-family:'EB Garamond',serif;font-size:2rem;color:var(--gold);font-weight:700">6</div>
-            <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem">Countries Active</div>
+          <div style="padding:1.5rem;border:1px solid rgba(0,158,219,0.25);border-radius:4px;text-align:center">
+            <div style="font-family:'EB Garamond',serif;font-size:2rem;color:var(--gold3);font-weight:700">6</div>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.3rem">Countries Active</div>
           </div>
         </div>
       </div>
@@ -745,9 +811,9 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 
     <!-- Team -->
     <div style="margin-top:6rem">
-      <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text" style="color:var(--gold2)">Our People</span></div>
+      <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text" style="color:var(--gold3)">Our People</span></div>
       <h2 class="section-h2 reveal delay-1" style="color:var(--white)">Leadership <em>Team</em></h2>
-      <p class="section-lead reveal delay-2" style="color:rgba(255,255,255,0.55)">Experienced practitioners from development, technology, law, and education — united by a shared commitment to community safety and digital equity.</p>
+      <p class="section-lead reveal delay-2" style="color:rgba(255,255,255,0.6)">Experienced practitioners from development, technology, law, and education — united by a shared commitment to community safety and digital equity.</p>
       <div class="team-grid" style="margin-top:3rem">
         <div class="team-card reveal delay-1">
           <div class="team-photo"><div class="img-ph" style="height:100%;border-radius:50%"><div style="font-size:0.5rem;color:var(--muted)">team-1.jpg</div></div></div>
@@ -775,7 +841,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 <!-- ===== TRAINING ROOM ===== -->
 <section id="training-section" style="background:var(--cream)">
   <div style="max-width:1280px;margin:0 auto;padding:7rem 2.5rem">
-    <div class="training-badge reveal">🟢 &nbsp; Live sessions available</div>
+    <div class="training-badge reveal">Live sessions available</div>
     <div class="section-kicker reveal" style="margin-top:1rem"><div class="section-kicker-line"></div><span class="section-kicker-text">Virtual Learning Hub</span></div>
     <h2 class="section-h2 reveal delay-1">SIFCO <em>Training Room</em></h2>
     <p class="section-lead reveal delay-2" style="max-width:700px">The SIFCO Training Room is a live, virtual workshop space where registered participants join scheduled sessions with expert facilitators and guest speakers. Sessions are interactive, community-focused, and free for qualifying participants.</p>
@@ -850,7 +916,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
         <h3>Meeting Platform Integration</h3>
         <p>Paste your Zoom Web SDK, Whereby embed, Google Meet, or Teams embed code here to activate the Training Room for live sessions.</p>
         <div class="embed-code-note">&lt;!-- Paste your meeting API embed here --&gt;</div>
-        <p style="margin-top:1.5rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">Integration support: <a href="mailto:training@sifcofoundation.org" style="color:var(--gold2)">training@sifcofoundation.org</a></p>
+        <p style="margin-top:1.5rem;font-size:0.8rem;color:rgba(255,255,255,0.35)">Integration support: <a href="mailto:training@sifcofoundation.org" style="color:var(--gold3)">training@sifcofoundation.org</a></p>
       </div>
     </div>
   </div>
@@ -943,9 +1009,9 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
         <div class="donate-impact-item"><div class="donate-impact-icon">🏛️</div><div class="donate-impact-text"><h4>$1,000+</h4><p>Establishes a community digital safety hub — complete with equipment, training, and 12-month facilitation.</p></div></div>
       </div>
       <div style="margin-top:2rem;padding:1.5rem;background:var(--navy);border-radius:4px">
-        <div style="font-size:0.7rem;color:var(--gold2);letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:0.5rem">Institutional Giving</div>
-        <p style="color:rgba(255,255,255,0.65);font-size:0.85rem;line-height:1.7;margin-bottom:1rem">For corporate, foundation, or government funding inquiries, our Partnerships team can discuss project-specific funding, multi-year commitments, and formal MOU arrangements.</p>
-        <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold2);font-size:0.83rem;font-weight:600;text-decoration:none">donations@sifcofoundation.org →</a>
+        <div style="font-size:0.7rem;color:var(--gold3);letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:0.5rem">Institutional Giving</div>
+        <p style="color:rgba(255,255,255,0.7);font-size:0.85rem;line-height:1.7;margin-bottom:1rem">For corporate, foundation, or government funding inquiries, our Partnerships team can discuss project-specific funding, multi-year commitments, and formal MOU arrangements.</p>
+        <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold3);font-size:0.83rem;font-weight:600;text-decoration:none">donations@sifcofoundation.org →</a>
       </div>
     </div>
     <div class="reveal-right delay-2">
@@ -1000,11 +1066,180 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
     </div>
   </div>
 
+  <!-- ===== ONLINE GIVING PLATFORMS ===== -->
+  <div class="platforms-section">
+    <div class="platforms-inner">
+      <div class="section-kicker"><div class="section-kicker-line"></div><span class="section-kicker-text">Online Giving Platforms</span></div>
+      <h2 class="section-h2" style="font-size:1.8rem;margin-top:0.5rem">Donate the Way That <em>Works for You</em></h2>
+      <p class="section-lead" style="margin-top:0.5rem">We accept donations across the most trusted global giving and money-transfer platforms. Choose whichever is easiest for you — every contribution is tracked and receipted.</p>
+
+      <div class="platforms-grid">
+
+        <a class="platform-card" href="https://www.paypal.com/paypalme/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#003087">PP</div>
+          <div class="pf-tag">Global · Card &amp; Bank</div>
+          <div class="pf-name">PayPal</div>
+          <div class="pf-desc">Send a one-time or recurring gift in any major currency. Fast, secure, and tax-receipted.</div>
+          <div class="pf-cta">Give via PayPal →</div>
+        </a>
+
+        <a class="platform-card" href="https://wise.com/pay/me/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#9fe870;color:#163300">W</div>
+          <div class="pf-tag">International Transfer</div>
+          <div class="pf-name">Wise</div>
+          <div class="pf-desc">Low-fee international transfers at the real exchange rate — ideal for diaspora and overseas donors.</div>
+          <div class="pf-cta">Give via Wise →</div>
+        </a>
+
+        <a class="platform-card" href="https://www.gofundme.com/f/sifco-foundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#00b964">GF</div>
+          <div class="pf-tag">Crowdfunding</div>
+          <div class="pf-name">GoFundMe</div>
+          <div class="pf-desc">Join an active campaign or share it with your network to multiply your impact.</div>
+          <div class="pf-cta">Open Campaign →</div>
+        </a>
+
+        <a class="platform-card" href="https://www.patreon.com/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#ff424d">P</div>
+          <div class="pf-tag">Monthly Membership</div>
+          <div class="pf-name">Patreon</div>
+          <div class="pf-desc">Become a sustaining member with monthly support and receive impact updates from the field.</div>
+          <div class="pf-cta">Become a Patron →</div>
+        </a>
+
+        <a class="platform-card" href="https://buymeacoffee.com/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#ffdd00;color:#0b2545">☕</div>
+          <div class="pf-tag">One-Tap Giving</div>
+          <div class="pf-name">Buy Me a Coffee</div>
+          <div class="pf-desc">Send a small one-off gift in seconds — no signup required. Every coffee funds a workbook.</div>
+          <div class="pf-cta">Send a Coffee →</div>
+        </a>
+
+        <a class="platform-card" href="https://ko-fi.com/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#13c3ff">KO</div>
+          <div class="pf-tag">One-Off &amp; Recurring</div>
+          <div class="pf-name">Ko-fi</div>
+          <div class="pf-desc">No platform fees on donations — your full contribution reaches our programs.</div>
+          <div class="pf-cta">Give on Ko-fi →</div>
+        </a>
+
+        <a class="platform-card" href="https://donate.stripe.com/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#635bff">S</div>
+          <div class="pf-tag">Card · Apple Pay · Google Pay</div>
+          <div class="pf-name">Stripe Checkout</div>
+          <div class="pf-desc">Card payments worldwide with Apple Pay and Google Pay support — secure and instant.</div>
+          <div class="pf-cta">Donate with Stripe →</div>
+        </a>
+
+        <a class="platform-card" href="https://www.globalgiving.org/projects/sifco-foundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#fd7820">GG</div>
+          <div class="pf-tag">Tax-Deductible · USA &amp; UK</div>
+          <div class="pf-name">GlobalGiving</div>
+          <div class="pf-desc">Tax-deductible giving for donors in the United States and United Kingdom, with project-level reporting.</div>
+          <div class="pf-cta">Give via GlobalGiving →</div>
+        </a>
+
+        <a class="platform-card" href="https://www.justgiving.com/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#ad1283">JG</div>
+          <div class="pf-tag">UK Gift Aid</div>
+          <div class="pf-name">JustGiving</div>
+          <div class="pf-desc">UK donors can add Gift Aid to boost their donation by 25% at no extra cost.</div>
+          <div class="pf-cta">Give via JustGiving →</div>
+        </a>
+
+        <a class="platform-card" href="https://cash.app/$sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#00d632">$</div>
+          <div class="pf-tag">Mobile Wallet</div>
+          <div class="pf-name">Cash App</div>
+          <div class="pf-desc">Send a quick gift from the Cash App to <strong style="color:var(--navy)">$sifcofoundation</strong>.</div>
+          <div class="pf-cta">Open Cash App →</div>
+        </a>
+
+        <a class="platform-card" href="https://venmo.com/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#3d95ce">V</div>
+          <div class="pf-tag">USA Mobile</div>
+          <div class="pf-name">Venmo</div>
+          <div class="pf-desc">For donors in the United States — send to <strong style="color:var(--navy)">@sifcofoundation</strong>.</div>
+          <div class="pf-cta">Send via Venmo →</div>
+        </a>
+
+        <a class="platform-card" href="https://revolut.me/sifcofoundation" target="_blank" rel="noopener">
+          <div class="pf-icon" style="background:#0075eb">R</div>
+          <div class="pf-tag">Multi-Currency</div>
+          <div class="pf-name">Revolut</div>
+          <div class="pf-desc">Send in 30+ currencies directly from your Revolut account, with no hidden fees.</div>
+          <div class="pf-cta">Send via Revolut →</div>
+        </a>
+
+      </div>
+
+      <!-- ===== CRYPTOCURRENCY ===== -->
+      <div class="crypto-block" id="crypto">
+        <div class="crypto-intro">
+          <div class="section-kicker" style="margin-bottom:1rem"><div class="section-kicker-line" style="background:var(--gold3)"></div><span class="section-kicker-text" style="color:var(--gold3)">Cryptocurrency</span></div>
+          <h3>Donate in Crypto</h3>
+          <p>SIFCO accepts major cryptocurrencies. Copy any wallet address below and send your contribution from your preferred wallet. For donations above $5,000, please email <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold3)">donations@sifcofoundation.org</a> first so we can issue a formal receipt and acknowledgement.</p>
+          <p class="crypto-note">⚠ Always double-check the wallet address before sending. Crypto transactions are irreversible. Replace these placeholder addresses with your live wallets before going live.</p>
+        </div>
+        <div class="crypto-list">
+          <div class="crypto-row">
+            <div class="crypto-symbol">₿</div>
+            <div class="crypto-info">
+              <div class="c-name">Bitcoin (BTC)</div>
+              <div class="c-addr" id="addr-btc">bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+            <button class="crypto-copy" onclick="copyAddr('addr-btc')">Copy</button>
+          </div>
+          <div class="crypto-row">
+            <div class="crypto-symbol">Ξ</div>
+            <div class="crypto-info">
+              <div class="c-name">Ethereum (ETH)</div>
+              <div class="c-addr" id="addr-eth">0xYourEthereumWalletAddressHere000000000000</div>
+            </div>
+            <button class="crypto-copy" onclick="copyAddr('addr-eth')">Copy</button>
+          </div>
+          <div class="crypto-row">
+            <div class="crypto-symbol">₮</div>
+            <div class="crypto-info">
+              <div class="c-name">Tether (USDT — TRC20)</div>
+              <div class="c-addr" id="addr-usdt">TYourTetherTRC20WalletAddressHere0000000</div>
+            </div>
+            <button class="crypto-copy" onclick="copyAddr('addr-usdt')">Copy</button>
+          </div>
+          <div class="crypto-row">
+            <div class="crypto-symbol">USDC</div>
+            <div class="crypto-info">
+              <div class="c-name">USD Coin (USDC — ERC20)</div>
+              <div class="c-addr" id="addr-usdc">0xYourUSDCERC20WalletAddressHere00000000</div>
+            </div>
+            <button class="crypto-copy" onclick="copyAddr('addr-usdc')">Copy</button>
+          </div>
+          <div class="crypto-row">
+            <div class="crypto-symbol">SOL</div>
+            <div class="crypto-info">
+              <div class="c-name">Solana (SOL)</div>
+              <div class="c-addr" id="addr-sol">YourSolanaWalletAddressHere000000000000</div>
+            </div>
+            <button class="crypto-copy" onclick="copyAddr('addr-sol')">Copy</button>
+          </div>
+          <div class="crypto-row">
+            <div class="crypto-symbol">B</div>
+            <div class="crypto-info">
+              <div class="c-name">BNB (BEP20)</div>
+              <div class="c-addr" id="addr-bnb">0xYourBNBBEP20WalletAddressHere0000000</div>
+            </div>
+            <button class="crypto-copy" onclick="copyAddr('addr-bnb')">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Bank transfer -->
   <div class="other-ways">
     <div class="other-ways-inner">
       <div class="section-kicker"><div class="section-kicker-line"></div><span class="section-kicker-text">Other Ways to Give</span></div>
-      <h2 class="section-h2" style="font-size:1.8rem;margin-top:0.5rem">Additional <em>Giving Methods</em></h2>
+      <h2 class="section-h2" style="font-size:1.8rem;margin-top:0.5rem">Bank &amp; <em>Mobile Money</em></h2>
       <div class="bank-grid">
         <div class="bank-card"><h4>Bank Transfer (Local)</h4><div class="bank-detail"><strong>Bank:</strong> Standard Lesotho Bank</div><div class="bank-detail"><strong>Account Name:</strong> SIFCO Foundation</div><div class="bank-detail"><strong>Account Number:</strong> Contact us for details</div><div class="bank-detail"><strong>Branch:</strong> Maseru Main</div><div style="margin-top:1rem"><a href="mailto:donations@sifcofoundation.org" style="color:var(--gold);font-size:0.8rem;font-weight:600">Request banking details →</a></div></div>
         <div class="bank-card"><h4>International Wire Transfer</h4><div class="bank-detail">For international donations and institutional transfers, our finance team provides full SWIFT/IBAN details and can issue an official MOU or receipt for tax purposes.</div><div style="margin-top:1rem"><a href="mailto:donations@sifcofoundation.org" style="color:var(--gold);font-size:0.8rem;font-weight:600">donations@sifcofoundation.org →</a></div></div>
@@ -1077,7 +1312,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
   </div>
 </section>
 
-<!-- ===== FOOTER — BRIGHT CREAM ===== -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-inner">
     <div class="footer-gold-rule"></div>
@@ -1086,7 +1321,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
         <div class="footer-brand-logo">
           <div class="footer-logo-img">
             <img src="logo.png" alt="SIFCO Foundation" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:var(--gold2);color:var(--navy);font-weight:800;font-size:0.65rem;font-family:'EB Garamond',serif">SIFCO</div>
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:var(--gold);color:var(--white);font-weight:800;font-size:0.65rem;font-family:'EB Garamond',serif">SIFCO</div>
           </div>
           <div>
             <div class="footer-brand-name">SIFCO Foundation</div>
@@ -1168,7 +1403,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
     <button class="chat-close" onclick="toggleChat()">✕</button>
   </div>
   <div class="chat-messages" id="chatMessages">
-    <div class="chat-msg bot">Hello! I'm the SIFCO Foundation virtual assistant. How can I help you today? I can answer questions about our programs, how to donate, speaker opportunities, or training workshops.</div>
+    <div class="chat-msg bot">Hello! I'm the SIFCO Foundation virtual assistant. How can I help you today? I can answer questions about our programs, how to donate (we accept PayPal, Wise, Stripe, crypto and more), speaker opportunities, or training workshops.</div>
   </div>
   <div class="chat-quick" id="quickReplies">
     <button class="quick-btn" onclick="quickAsk('How do I donate?')">How to donate?</button>
@@ -1183,6 +1418,8 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
     </button>
   </div>
 </div>
+
+<div class="copy-toast" id="copyToast">Copied to clipboard</div>
 
 <script>
 // ======= SMOOTH SCROLL NAV =======
@@ -1244,13 +1481,34 @@ function setFreq(btn, freq) {
   btn.classList.add('selected');
 }
 function handleDonate() {
-  alert('Thank you for your generosity! In a live environment this would process your payment securely. Please email donations@sifcofoundation.org to complete your donation.');
+  alert('Thank you for your generosity! In a live environment this would process your payment securely. Please email donations@sifcofoundation.org to complete your donation, or scroll down to choose another platform (PayPal, Wise, Stripe, cryptocurrency, etc.).');
 }
 function handleSpeakerApp() {
   alert('Thank you for your interest! Your application has been received. Our team will review it and respond within 5 business days.');
 }
 function handleContact() {
   alert('Thank you for your message. We will respond within 2 business days.');
+}
+
+// ======= COPY CRYPTO ADDRESS =======
+function copyAddr(id){
+  const text = document.getElementById(id).innerText.trim();
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(showCopyToast).catch(()=>fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+function fallbackCopy(text){
+  const ta=document.createElement('textarea');
+  ta.value=text;document.body.appendChild(ta);ta.select();
+  try{document.execCommand('copy');showCopyToast();}catch(e){alert('Address: '+text);}
+  document.body.removeChild(ta);
+}
+function showCopyToast(){
+  const t=document.getElementById('copyToast');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),1800);
 }
 
 // ======= AI CHAT =======
@@ -1261,10 +1519,11 @@ function toggleChat() {
 }
 
 const responses = {
-  'donate': 'You can donate via the <b>Donate section</b> on this page using a credit/debit card, bank transfer, or mobile money. 100% of program funds reach beneficiaries. Email <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold)">donations@sifcofoundation.org</a> for institutional giving.',
+  'donate': 'You can donate in many ways! Scroll to the <b>Donate section</b> to use a credit/debit card, or pick from <b>PayPal, Wise, Stripe, GoFundMe, Patreon, Buy Me a Coffee, Ko-fi, GlobalGiving, JustGiving, Cash App, Venmo, or Revolut</b>. We also accept <b>cryptocurrency</b> (BTC, ETH, USDT, USDC, SOL, BNB) and bank/mobile money transfers. Email <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold)">donations@sifcofoundation.org</a> for institutional giving.',
   'speaker': 'We welcome speakers and facilitators across digital safety, child protection, climate action, livelihoods, and technology. Scroll to the <b>Become a Speaker</b> section to apply, or email <a href="mailto:training@sifcofoundation.org" style="color:var(--gold)">training@sifcofoundation.org</a>.',
   'training': 'The SIFCO Training Room hosts live, facilitated sessions weekly — free for qualifying participants. Scroll to the <b>Training Room</b> section to see upcoming sessions and register.',
   'programs': 'SIFCO operates 8 core programs: Child & Youth Protection, Climate-Smart Digital Initiatives, Bridging the Digital Divide, Anti-Trafficking Awareness, Vocational & Digital Skills, Digital Inclusion, Digital Literacy & E-Learning, and Digital Livelihoods.',
+  'crypto': 'Yes! We accept <b>Bitcoin, Ethereum, USDT, USDC, Solana, and BNB</b>. Scroll to the Donate section and look for the dark blue <b>Cryptocurrency</b> panel — you can copy any wallet address with one click.',
   'contact': 'Reach us at:<br>• General: <a href="mailto:info@sifcofoundation.org" style="color:var(--gold)">info@sifcofoundation.org</a><br>• Donations: <a href="mailto:donations@sifcofoundation.org" style="color:var(--gold)">donations@sifcofoundation.org</a><br>• Training: <a href="mailto:training@sifcofoundation.org" style="color:var(--gold)">training@sifcofoundation.org</a>',
   'lesotho': 'SIFCO Foundation was founded in 2026 and is headquartered in Maseru, the capital of the Kingdom of Lesotho. Our programs operate across southern Africa and beyond.',
   'default': 'Thank you for your question. For the most accurate information, please email <a href="mailto:info@sifcofoundation.org" style="color:var(--gold)">info@sifcofoundation.org</a> and our team will respond within 2 business days.'
@@ -1272,7 +1531,8 @@ const responses = {
 
 function getResponse(msg) {
   const m = msg.toLowerCase();
-  if (m.includes('donat') || m.includes('give') || m.includes('contribut') || m.includes('fund')) return responses['donate'];
+  if (m.includes('crypto') || m.includes('bitcoin') || m.includes('btc') || m.includes('eth') || m.includes('usdt') || m.includes('wallet')) return responses['crypto'];
+  if (m.includes('donat') || m.includes('give') || m.includes('contribut') || m.includes('fund') || m.includes('paypal') || m.includes('wise') || m.includes('stripe')) return responses['donate'];
   if (m.includes('speaker') || m.includes('facilitat') || m.includes('present')) return responses['speaker'];
   if (m.includes('train') || m.includes('workshop') || m.includes('session') || m.includes('learn')) return responses['training'];
   if (m.includes('program') || m.includes('work') || m.includes('initiative')) return responses['programs'];
