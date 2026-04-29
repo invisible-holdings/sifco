@@ -98,7 +98,8 @@ nav{
 }
 .hero-bg-img{
   position:absolute;inset:0;
-  background:linear-gradient(105deg,#0b2545 0%,#13315c 40%,rgba(29,78,137,0.85) 100%);
+  background-image:linear-gradient(105deg,rgba(11,37,69,0.92) 0%,rgba(19,49,92,0.82) 45%,rgba(29,78,137,0.65) 100%),url('hero-bg.jpg');
+  background-size:cover;background-position:center;background-repeat:no-repeat;
   z-index:0
 }
 .hero-grain{
@@ -589,11 +590,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
     </div>
     <div class="hero-img-panel reveal-right delay-2">
       <div class="hero-img-frame">
-        <div class="img-ph" style="height:100%;min-height:400px">
-          <div class="ph-icon">📷</div>
-          <div class="ph-fn">hero-panel.jpg</div>
-          <div class="ph-desc">Youth in digital learning workshop, African setting, warm and professional</div>
-        </div>
+        <img src="hero-panel.jpg" alt="SIFCO Foundation in action" style="width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none'">
       </div>
       <div class="hero-img-badge">
         <span class="badge-num">2026</span>
@@ -608,11 +605,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
   <div class="section-inner">
     <div class="mission-grid">
       <div class="mission-img reveal-left">
-        <div class="img-ph" style="height:100%;min-height:340px;border-radius:4px">
-          <div class="ph-icon">📷</div>
-          <div class="ph-fn">mission.jpg</div>
-          <div class="ph-desc">Community workshop in Lesotho, documentary style</div>
-        </div>
+        <img src="mission.jpg" alt="SIFCO community work in Lesotho" style="width:100%;height:100%;min-height:340px;object-fit:cover;display:block" onerror="this.style.display='none'">
         <div class="mission-accent-box">
           <span class="accent-num">2026</span>
           <div class="accent-text">Founded in Maseru, Lesotho</div>
@@ -666,7 +659,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 </div>
 
 <!-- ===== OBJECTIVES ===== -->
-<section class="section objectives" id="objectives">
+<section class="section objectives" id="objectives" style="background-image:linear-gradient(rgba(240,247,251,0.93),rgba(240,247,251,0.97)),url('objectives-bg.jpg');background-size:cover;background-position:center;background-attachment:fixed">
   <div class="section-inner">
     <div class="obj-intro-grid">
       <div>
@@ -748,6 +741,9 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
     </div>
     <h2 class="section-h2 reveal delay-1">Three Pillars of<br><em>Systemic Change</em></h2>
     <p class="section-lead reveal delay-2">Our work is organised across three interconnected domains, each reinforcing the other to create durable, community-owned outcomes.</p>
+    <div style="margin-top:3rem;border-radius:6px;overflow:hidden;border:1px solid var(--divider);max-height:340px" class="reveal delay-2">
+      <img src="focus-right.jpg" alt="SIFCO focus areas in action" style="width:100%;height:340px;object-fit:cover;display:block" onerror="this.parentElement.style.display='none'">
+    </div>
     <div class="focus-grid">
       <div class="focus-card reveal delay-1">
         <div class="focus-card-num">01</div>
@@ -772,7 +768,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 </section>
 
 <!-- ===== ABOUT (FULL) ===== -->
-<section id="about-section" style="background:var(--navy)">
+<section id="about-section" style="background-image:linear-gradient(rgba(11,37,69,0.92),rgba(11,37,69,0.95)),url('about-hero.jpg');background-size:cover;background-position:center;background-attachment:fixed">
   <div style="max-width:1280px;margin:0 auto;padding:7rem 2.5rem">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start">
       <div>
@@ -790,11 +786,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
       </div>
       <div>
         <div class="about-story-img reveal-right delay-2" style="position:static;border-color:rgba(0,158,219,0.25)">
-          <div class="img-ph" style="height:100%;min-height:440px;border-radius:4px">
-            <div class="ph-icon" style="color:rgba(0,158,219,0.6)">📷</div>
-            <div class="ph-fn">about-story.jpg</div>
-            <div class="ph-desc" style="color:rgba(255,255,255,0.45)">Leadership team, candid professional setting, Lesotho</div>
-          </div>
+          <img src="about-story.jpg" alt="SIFCO leadership team in Lesotho" style="width:100%;height:100%;min-height:440px;object-fit:cover;display:block" onerror="this.style.display='none'">
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem" class="reveal delay-3">
           <div style="padding:1.5rem;border:1px solid rgba(0,158,219,0.25);border-radius:4px;text-align:center">
@@ -839,7 +831,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 </section>
 
 <!-- ===== TRAINING ROOM ===== -->
-<section id="training-section" style="background:var(--cream)">
+<section id="training-section" style="background-image:linear-gradient(rgba(240,247,251,0.96),rgba(240,247,251,0.96)),url('training-hero.jpg');background-size:cover;background-position:center;background-attachment:fixed">
   <div style="max-width:1280px;margin:0 auto;padding:7rem 2.5rem">
     <div class="training-badge reveal">Live sessions available</div>
     <div class="section-kicker reveal" style="margin-top:1rem"><div class="section-kicker-line"></div><span class="section-kicker-text">Virtual Learning Hub</span></div>
@@ -923,8 +915,9 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 </section>
 
 <!-- ===== BECOME A SPEAKER ===== -->
-<section id="speaker-section" style="background:var(--white)">
-  <div style="max-width:1280px;margin:0 auto;padding:7rem 2.5rem">
+<section id="speaker-section" style="background:var(--white);position:relative">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.94),rgba(255,255,255,0.97)),url('speaker-hero.jpg');background-size:cover;background-position:center;z-index:0"></div>
+  <div style="max-width:1280px;margin:0 auto;padding:7rem 2.5rem;position:relative;z-index:1">
     <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start">
       <div>
         <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text">Join Our Network</span></div>
@@ -939,11 +932,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
       </div>
       <div>
         <div class="speaker-img reveal-right">
-          <div class="img-ph" style="height:260px;border-radius:4px">
-            <div class="ph-icon">📷</div>
-            <div class="ph-fn">speaker-photo.jpg</div>
-            <div class="ph-desc">Facilitator engaging workshop participants, dynamic and candid</div>
-          </div>
+          <img src="speaker-photo.jpg" alt="SIFCO speaker engaging participants" style="width:100%;height:260px;object-fit:cover;display:block" onerror="this.style.display='none'">
         </div>
         <div class="speaker-form reveal-right delay-2">
           <div class="speaker-form-title">Speaker Application</div>
@@ -990,7 +979,7 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
 </section>
 
 <!-- ===== DONATE ===== -->
-<section id="donate-section" style="background:var(--cream)">
+<section id="donate-section" style="background-image:linear-gradient(rgba(240,247,251,0.94),rgba(240,247,251,0.97)),url('donate-bg.jpg');background-size:cover;background-position:center;background-attachment:fixed">
   <div style="padding:7rem 2.5rem 2rem">
     <div style="max-width:1280px;margin:0 auto">
       <div class="section-kicker reveal"><div class="section-kicker-line"></div><span class="section-kicker-text">Support Our Work</span></div>
@@ -1272,6 +1261,9 @@ footer{background:var(--footer-bg);border-top:2px solid var(--footer-border);pad
         <div style="margin-top:2rem;padding:1.5rem;background:var(--cream);border:1px solid var(--divider);border-radius:4px">
           <div style="font-weight:600;color:var(--navy);margin-bottom:0.4rem;font-size:0.9rem">📍 Physical Address</div>
           <div style="font-size:0.83rem;color:var(--muted);line-height:1.7">SIFCO Foundation<br>Maseru, Kingdom of Lesotho<br><em style="font-size:0.78rem">Exact address provided upon confirmed appointment.</em></div>
+        </div>
+        <div style="margin-top:1.2rem;border-radius:4px;overflow:hidden;border:1px solid var(--divider)">
+          <img src="contact-map.jpg" alt="SIFCO Foundation location — Maseru, Lesotho" style="width:100%;display:block" onerror="this.parentElement.style.display='none'">
         </div>
       </div>
       <div class="contact-form-panel reveal-right delay-2">
